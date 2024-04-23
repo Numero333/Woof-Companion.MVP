@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct FinishedWalkView: View {
+    
+    @EnvironmentObject private var coordinator: Coordinator
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("La ballade était agréable ?")
+        
+        Button {
+            coordinator.dismissFullScreenCover()
+        } label: {
+            Text("FullScren Close")
+        }
     }
 }
 

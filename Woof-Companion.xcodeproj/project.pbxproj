@@ -94,10 +94,11 @@
 		749D03332BD7FE1800210B09 /* Woof-Companion */ = {
 			isa = PBXGroup;
 			children = (
-				749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */,
-				749D03362BD7FE1800210B09 /* ContentView.swift */,
-				749D03382BD7FE1A00210B09 /* Assets.xcassets */,
-				749D033A2BD7FE1A00210B09 /* Preview Content */,
+				749D03612BD7FEF500210B09 /* ApplicationLifeCycle */,
+				749D035E2BD7FEC800210B09 /* Model */,
+				749D03602BD7FED400210B09 /* View */,
+				749D035F2BD7FECD00210B09 /* ViewModel */,
+				749D03622BD7FF0500210B09 /* Ressource */,
 			);
 			path = "Woof-Companion";
 			sourceTree = "<group>";
@@ -125,6 +126,45 @@
 				749D03512BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift */,
 			);
 			path = "Woof-CompanionUITests";
+			sourceTree = "<group>";
+		};
+		749D035E2BD7FEC800210B09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		749D035F2BD7FECD00210B09 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		749D03602BD7FED400210B09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				749D03362BD7FE1800210B09 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		749D03612BD7FEF500210B09 /* ApplicationLifeCycle */ = {
+			isa = PBXGroup;
+			children = (
+				749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */,
+			);
+			path = ApplicationLifeCycle;
+			sourceTree = "<group>";
+		};
+		749D03622BD7FF0500210B09 /* Ressource */ = {
+			isa = PBXGroup;
+			children = (
+				749D033A2BD7FE1A00210B09 /* Preview Content */,
+				749D03382BD7FE1A00210B09 /* Assets.xcassets */,
+			);
+			path = Ressource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,7 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Woof-Companion/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Woof-Companion/ressource/Preview Content\"";
 				DEVELOPMENT_TEAM = PQM28NC327;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -450,7 +490,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Woof-Companion/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Woof-Companion/ressource/Preview Content\"";
 				DEVELOPMENT_TEAM = PQM28NC327;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

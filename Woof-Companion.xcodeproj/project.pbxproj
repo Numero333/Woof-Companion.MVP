@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */; };
-		749D03372BD7FE1800210B09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03362BD7FE1800210B09 /* ContentView.swift */; };
 		749D03392BD7FE1A00210B09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749D03382BD7FE1A00210B09 /* Assets.xcassets */; };
 		749D033C2BD7FE1A00210B09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749D033B2BD7FE1A00210B09 /* Preview Assets.xcassets */; };
 		749D03462BD7FE1A00210B09 /* Woof_CompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03452BD7FE1A00210B09 /* Woof_CompanionTests.swift */; };
@@ -19,6 +18,9 @@
 		749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D036F2BD8017D00210B09 /* TotalActivityView.swift */; };
 		749D03722BD8053A00210B09 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03712BD8053A00210B09 /* CoordinatorView.swift */; };
 		749D03752BD8063400210B09 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03742BD8063400210B09 /* Coordinator.swift */; };
+		749D03792BD80A3600210B09 /* WalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03782BD80A3600210B09 /* WalkView.swift */; };
+		749D037B2BD80A4000210B09 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D037A2BD80A4000210B09 /* HistoryView.swift */; };
+		749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D037C2BD80AE000210B09 /* FinishedWalkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,6 @@
 /* Begin PBXFileReference section */
 		749D03312BD7FE1800210B09 /* Woof-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woof-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woof_CompanionApp.swift; sourceTree = "<group>"; };
-		749D03362BD7FE1800210B09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		749D03382BD7FE1A00210B09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749D033B2BD7FE1A00210B09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		749D03412BD7FE1A00210B09 /* Woof-CompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Woof-CompanionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +55,9 @@
 		749D036F2BD8017D00210B09 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
 		749D03712BD8053A00210B09 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		749D03742BD8063400210B09 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		749D03782BD80A3600210B09 /* WalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkView.swift; sourceTree = "<group>"; };
+		749D037A2BD80A4000210B09 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		749D037C2BD80AE000210B09 /* FinishedWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWalkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +162,8 @@
 			children = (
 				749D03712BD8053A00210B09 /* CoordinatorView.swift */,
 				749D03632BD7FFFC00210B09 /* Main */,
-				749D03362BD7FE1800210B09 /* ContentView.swift */,
+				749D03762BD809F900210B09 /* WalkView */,
+				749D03772BD809FD00210B09 /* HistoryView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +209,23 @@
 				749D03742BD8063400210B09 /* Coordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		749D03762BD809F900210B09 /* WalkView */ = {
+			isa = PBXGroup;
+			children = (
+				749D03782BD80A3600210B09 /* WalkView.swift */,
+				749D037C2BD80AE000210B09 /* FinishedWalkView.swift */,
+			);
+			path = WalkView;
+			sourceTree = "<group>";
+		};
+		749D03772BD809FD00210B09 /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				749D037A2BD80A4000210B09 /* HistoryView.swift */,
+			);
+			path = HistoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,12 +358,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				749D03372BD7FE1800210B09 /* ContentView.swift in Sources */,
 				749D03722BD8053A00210B09 /* CoordinatorView.swift in Sources */,
+				749D037B2BD80A4000210B09 /* HistoryView.swift in Sources */,
+				749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */,
 				749D036E2BD8010800210B09 /* MainView.swift in Sources */,
 				749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */,
 				749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */,
 				749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */,
+				749D03792BD80A3600210B09 /* WalkView.swift in Sources */,
 				749D03752BD8063400210B09 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

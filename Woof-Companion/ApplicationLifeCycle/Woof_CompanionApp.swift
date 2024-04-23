@@ -11,7 +11,7 @@ import SwiftUI
 struct Woof_CompanionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoordinatorView()
         }
     }
 }

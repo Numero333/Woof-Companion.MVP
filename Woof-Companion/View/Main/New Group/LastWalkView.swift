@@ -22,11 +22,9 @@ struct LastWalkView: View {
                     Text("Dernière sorti ")
                         .font(.title2)
                         .italic()
-                        .padding(.top, -30)
                     Spacer()
                 }
-                .padding()
-                .padding(.vertical)
+                .padding(.bottom)
                 
                 HStack {
                     InfoTag(icon: "bolt.fill", text: staticValue, color: Color.yellow.gradient)
@@ -34,7 +32,6 @@ struct LastWalkView: View {
                     InfoTag(icon: "pawprint", text: staticValue, color: Color.green.gradient
                     )
                 }
-                .padding(.top, -20)
                 .padding(.bottom, 10)
                 
                 HStack(alignment: .center) {
@@ -116,7 +113,5 @@ struct BigTag: View {
                 
             )
             .cornerRadius(25)
-            
-//        }
     }
 }

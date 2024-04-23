@@ -14,6 +14,11 @@
 		749D03462BD7FE1A00210B09 /* Woof_CompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03452BD7FE1A00210B09 /* Woof_CompanionTests.swift */; };
 		749D03502BD7FE1A00210B09 /* Woof_CompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D034F2BD7FE1A00210B09 /* Woof_CompanionUITests.swift */; };
 		749D03522BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03512BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift */; };
+		749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D036A2BD8006C00210B09 /* LastWalkView.swift */; };
+		749D036E2BD8010800210B09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D036D2BD8010800210B09 /* MainView.swift */; };
+		749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D036F2BD8017D00210B09 /* TotalActivityView.swift */; };
+		749D03722BD8053A00210B09 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03712BD8053A00210B09 /* CoordinatorView.swift */; };
+		749D03752BD8063400210B09 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03742BD8063400210B09 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		749D034B2BD7FE1A00210B09 /* Woof-CompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Woof-CompanionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749D034F2BD7FE1A00210B09 /* Woof_CompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woof_CompanionUITests.swift; sourceTree = "<group>"; };
 		749D03512BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woof_CompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		749D036A2BD8006C00210B09 /* LastWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LastWalkView.swift; path = "../New Group/LastWalkView.swift"; sourceTree = "<group>"; };
+		749D036D2BD8010800210B09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		749D036F2BD8017D00210B09 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
+		749D03712BD8053A00210B09 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		749D03742BD8063400210B09 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +108,7 @@
 				749D035E2BD7FEC800210B09 /* Model */,
 				749D03602BD7FED400210B09 /* View */,
 				749D035F2BD7FECD00210B09 /* ViewModel */,
+				749D03732BD8061200210B09 /* Coordinator */,
 				749D03622BD7FF0500210B09 /* Ressource */,
 			);
 			path = "Woof-Companion";
@@ -145,6 +156,8 @@
 		749D03602BD7FED400210B09 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				749D03712BD8053A00210B09 /* CoordinatorView.swift */,
+				749D03632BD7FFFC00210B09 /* Main */,
 				749D03362BD7FE1800210B09 /* ContentView.swift */,
 			);
 			path = View;
@@ -165,6 +178,32 @@
 				749D03382BD7FE1A00210B09 /* Assets.xcassets */,
 			);
 			path = Ressource;
+			sourceTree = "<group>";
+		};
+		749D03632BD7FFFC00210B09 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				749D036D2BD8010800210B09 /* MainView.swift */,
+				749D036C2BD800F800210B09 /* SubView */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		749D036C2BD800F800210B09 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				749D036A2BD8006C00210B09 /* LastWalkView.swift */,
+				749D036F2BD8017D00210B09 /* TotalActivityView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		749D03732BD8061200210B09 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				749D03742BD8063400210B09 /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +337,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				749D03372BD7FE1800210B09 /* ContentView.swift in Sources */,
+				749D03722BD8053A00210B09 /* CoordinatorView.swift in Sources */,
+				749D036E2BD8010800210B09 /* MainView.swift in Sources */,
+				749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */,
 				749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */,
+				749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */,
+				749D03752BD8063400210B09 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

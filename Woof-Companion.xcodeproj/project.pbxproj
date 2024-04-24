@@ -17,10 +17,15 @@
 		749D036E2BD8010800210B09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D036D2BD8010800210B09 /* MainView.swift */; };
 		749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D036F2BD8017D00210B09 /* TotalActivityView.swift */; };
 		749D03722BD8053A00210B09 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03712BD8053A00210B09 /* CoordinatorView.swift */; };
-		749D03752BD8063400210B09 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03742BD8063400210B09 /* Coordinator.swift */; };
+		749D03752BD8063400210B09 /* CoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03742BD8063400210B09 /* CoordinatorManager.swift */; };
 		749D03792BD80A3600210B09 /* WalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03782BD80A3600210B09 /* WalkView.swift */; };
 		749D037B2BD80A4000210B09 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D037A2BD80A4000210B09 /* HistoryView.swift */; };
 		749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D037C2BD80AE000210B09 /* FinishedWalkView.swift */; };
+		749D03812BD83D7500210B09 /* WeatherChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03802BD83D7500210B09 /* WeatherChoice.swift */; };
+		749D03832BD8E83400210B09 /* WalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03822BD8E83400210B09 /* WalkViewModel.swift */; };
+		749D03852BD8E86E00210B09 /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03842BD8E86E00210B09 /* WalkModel.swift */; };
+		749D03882BD8E8B800210B09 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03872BD8E8B800210B09 /* TimerManager.swift */; };
+		749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03892BD8E8CD00210B09 /* PedometerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +59,15 @@
 		749D036D2BD8010800210B09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		749D036F2BD8017D00210B09 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
 		749D03712BD8053A00210B09 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
-		749D03742BD8063400210B09 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		749D03742BD8063400210B09 /* CoordinatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorManager.swift; sourceTree = "<group>"; };
 		749D03782BD80A3600210B09 /* WalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkView.swift; sourceTree = "<group>"; };
 		749D037A2BD80A4000210B09 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		749D037C2BD80AE000210B09 /* FinishedWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWalkView.swift; sourceTree = "<group>"; };
+		749D03802BD83D7500210B09 /* WeatherChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherChoice.swift; sourceTree = "<group>"; };
+		749D03822BD8E83400210B09 /* WalkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewModel.swift; sourceTree = "<group>"; };
+		749D03842BD8E86E00210B09 /* WalkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkModel.swift; sourceTree = "<group>"; };
+		749D03872BD8E8B800210B09 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		749D03892BD8E8CD00210B09 /* PedometerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +118,11 @@
 		749D03332BD7FE1800210B09 /* Woof-Companion */ = {
 			isa = PBXGroup;
 			children = (
+				749D03862BD8E8A900210B09 /* Manager */,
 				749D03612BD7FEF500210B09 /* ApplicationLifeCycle */,
 				749D035E2BD7FEC800210B09 /* Model */,
 				749D03602BD7FED400210B09 /* View */,
 				749D035F2BD7FECD00210B09 /* ViewModel */,
-				749D03732BD8061200210B09 /* Coordinator */,
 				749D03622BD7FF0500210B09 /* Ressource */,
 			);
 			path = "Woof-Companion";
@@ -146,6 +156,8 @@
 		749D035E2BD7FEC800210B09 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				749D03802BD83D7500210B09 /* WeatherChoice.swift */,
+				749D03842BD8E86E00210B09 /* WalkModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +165,7 @@
 		749D035F2BD7FECD00210B09 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				749D03822BD8E83400210B09 /* WalkViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -203,14 +216,6 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
-		749D03732BD8061200210B09 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				749D03742BD8063400210B09 /* Coordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		749D03762BD809F900210B09 /* WalkView */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +231,16 @@
 				749D037A2BD80A4000210B09 /* HistoryView.swift */,
 			);
 			path = HistoryView;
+			sourceTree = "<group>";
+		};
+		749D03862BD8E8A900210B09 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				749D03742BD8063400210B09 /* CoordinatorManager.swift */,
+				749D03872BD8E8B800210B09 /* TimerManager.swift */,
+				749D03892BD8E8CD00210B09 /* PedometerManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,14 +374,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				749D03722BD8053A00210B09 /* CoordinatorView.swift in Sources */,
+				749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */,
 				749D037B2BD80A4000210B09 /* HistoryView.swift in Sources */,
 				749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */,
 				749D036E2BD8010800210B09 /* MainView.swift in Sources */,
 				749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */,
+				749D03882BD8E8B800210B09 /* TimerManager.swift in Sources */,
+				749D03812BD83D7500210B09 /* WeatherChoice.swift in Sources */,
+				749D03852BD8E86E00210B09 /* WalkModel.swift in Sources */,
 				749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */,
 				749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */,
+				749D03832BD8E83400210B09 /* WalkViewModel.swift in Sources */,
 				749D03792BD80A3600210B09 /* WalkView.swift in Sources */,
-				749D03752BD8063400210B09 /* Coordinator.swift in Sources */,
+				749D03752BD8063400210B09 /* CoordinatorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +553,7 @@
 				DEVELOPMENT_TEAM = PQM28NC327;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -562,6 +583,7 @@
 				DEVELOPMENT_TEAM = PQM28NC327;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WalkView: View {
     @EnvironmentObject private var coordinator: CoordinatorManager
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
     
     #warning("bouger timer manager et pedometer")
     @ObservedObject var timer = TimerManager()

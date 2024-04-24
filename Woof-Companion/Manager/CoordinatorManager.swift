@@ -9,7 +9,7 @@ import SwiftUI
 
 //MARK: - Base View
 enum AppView: String, Identifiable {
-    case main, walk, history
+    case main, walk, history, auth, signUp
     
     var id: String {
         self.rawValue
@@ -26,7 +26,7 @@ enum FullScreenCover: String, Identifiable {
 }
 
 //MARK: - Coordinator Manager
-class CoordinatorManager: ObservableObject {
+final class CoordinatorManager: ObservableObject {
     
     // MARK: Properties
     @Published var path = NavigationPath()
@@ -64,6 +64,10 @@ class CoordinatorManager: ObservableObject {
             WalkView()
         case .history:
             HistoryView()
+        case .auth:
+            AuthView()
+        case .signUp:
+            SignUpView()
         }
     }
     

@@ -12,41 +12,64 @@ struct CoordinatorView: View {
     
     // StateObject to manage the state and logic of navigation throughout the app.
     @StateObject private var coordinator = CoordinatorManager()
+    @ObservedObject private var authManager = AuthManager()
     
     var body: some View {
         // Navigation stack to manage navigable views controlled by the coordinator.
         NavigationStack(path: $coordinator.path) {
-            // Tab view for handling user navigation between different app sections.
-            TabView(selection: $coordinator.selectedTab) {
-                CoordinatorTabView(tab: .history)
-                    .tabItem {
-                        Label("History", systemImage: "clock")
-                    }
-                    .tag(AppView.history)
+            
+            if !authManager.isLogged {
+                coordinator.build(appView: .auth)
                 
-                CoordinatorTabView(tab: .main)
-                    .tabItem {
-                        Label("Main", systemImage: "house")
-                    }
-                    .tag(AppView.main)
-                
-                CoordinatorTabView(tab: .walk)
-                    .tabItem {
-                        Label("Walk", systemImage: "figure.walk.motion")
-                            .tag(AppView.walk)
-                    }
                 // Navigation destination for managing transitions.
                     .navigationDestination(for: AppView.self) { appView in
                         coordinator.build(appView: appView) // Builds the appropriate view.
                     }
+                
+            } else {
+                
+                // Tab view for handling user navigation between different app sections.
+                TabView(selection: $coordinator.selectedTab) {
+                    CoordinatorTabView(tab: .history)
+                        .tabItem {
+                            Label("History", systemImage: "clock")
+                        }
+                        .tag(AppView.history)
+                    
+                    CoordinatorTabView(tab: .main)
+                        .tabItem {
+                            Label("Main", systemImage: "house")
+                        }
+                        .tag(AppView.main)
+                    
+                    CoordinatorTabView(tab: .walk)
+                        .tabItem {
+                            Label("Walk", systemImage: "figure.walk.motion")
+                        }
+                        .tag(AppView.walk)
+                }
+                // Navigation destination for managing transitions.
+                .navigationDestination(for: AppView.self) { appView in
+                    coordinator.build(appView: appView) // Builds the appropriate view.
+                }
                 // Full screen cover for presenting modal views.
-                    .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
-                        coordinator.build(fullScreenCover: fullScreenCover)
-                    }
+                .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
+                    coordinator.build(fullScreenCover: fullScreenCover)
+                }
             }
-            // Injects the coordinator as an environment object available to child views.
-            .environmentObject(coordinator)
         }
+        // React of user LogIn / LogOut
+        .onChange(of: authManager.isLogged) {
+            coordinator.popToRoot()
+        }
+        // Injects the coordinator as an environment object available to child views.
+        .environmentObject(coordinator)
+        .environmentObject(authManager)
+        .onAppear {
+            let authUser = try? authManager.getAuthUser()
+            authManager.isLogged = authUser == nil ? false : true
+        }
+        
     }
 }
 
@@ -63,6 +86,10 @@ struct CoordinatorTabView: View {
             coordinator.build(appView: .walk)
         case .history:
             coordinator.build(appView: .history)
+        case .auth:
+            coordinator.build(appView: .auth)
+        case .signUp:
+            coordinator.build(appView: .signUp)
         }
     }
 }

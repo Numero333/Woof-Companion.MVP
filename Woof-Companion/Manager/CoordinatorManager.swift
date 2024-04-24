@@ -9,7 +9,16 @@ import SwiftUI
 
 //MARK: - Base View
 enum AppView: String, Identifiable {
-    case main, walk, history, auth, signUp
+    case main, walk, history, auth
+    
+    var id: String {
+        self.rawValue
+    }
+}
+
+//MARK: - Sub View
+enum SubView: String, Identifiable {
+    case signUp, signIn, resetPassword, parameters
     
     var id: String {
         self.rawValue
@@ -34,24 +43,29 @@ final class CoordinatorManager: ObservableObject {
     @Published var selectedTab: AppView = .main
     
     //MARK: - Methods
-    func push(_ appView: AppView) {
-        path.append(appView)
+    func push(_ subView: SubView) {
+        path.append(subView)
+        
     }
     
     func present(fullScreenCover: FullScreenCover) {
         self.fullScreenCover = fullScreenCover
+        
     }
     
     func pop() {
         path.removeLast()
+        
     }
     
     func popToRoot() {
         path.removeLast(path.count)
+        
     }
     
     func dismissFullScreenCover() {
         self.fullScreenCover = nil
+        
     }
     
     //MARK: - View Builder
@@ -66,8 +80,20 @@ final class CoordinatorManager: ObservableObject {
             HistoryView()
         case .auth:
             AuthView()
+        }
+    }
+    
+    @ViewBuilder
+    func build(subView: SubView) -> some View {
+        switch subView {
         case .signUp:
             SignUpView()
+        case .signIn:
+            SignInView()
+        case .resetPassword:
+            ResetPasswordView()
+        case .parameters:
+            ParametersView()
         }
     }
     

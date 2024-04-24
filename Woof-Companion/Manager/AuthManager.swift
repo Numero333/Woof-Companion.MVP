@@ -22,11 +22,6 @@ final class AuthManager: ObservableObject {
 //        }
     
     //MARK: - Methods
-    func createUser(email: String, password: String) async throws -> AuthDataResultModel {
-        let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
-        isLogged = true
-        return AuthDataResultModel(user: authResult.user)
-    }
     
     // Get the user localy
     func getAuthUser() throws -> AuthDataResultModel {
@@ -41,8 +36,9 @@ final class AuthManager: ObservableObject {
     func signOut() throws {
         do {
             try Auth.auth().signOut()
-        } catch {
-            throw URLError(.userAuthenticationRequired)
+            isLogged = false
+        } catch let error {
+            throw error
         }
     }
     
@@ -55,11 +51,73 @@ final class AuthManager: ObservableObject {
         
         Task {
             do {
-                let userData = try await self.createUser(email: email, password: password)
+                let _ = try await self.createUser(email: email, password: password)
                 self.isLogged = true
-            } catch {
+            } catch let error {
                 print("error while logging please try again")
+                print(error.localizedDescription)
             }
+        }
+    }
+    
+    func signIn() {
+        guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
+            print("incorrect mail or password check information")
+            return
+        }
+        Task {
+            do {
+                let _ = try await self.signInUser(email: email, password: password)
+                print(email)
+                print(password)
+                self.isLogged = true
+            } catch let error {
+                print("error while sign in please try again")
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+//    func resetPassword() {
+//        do {
+//            let user = try getAuthUser()
+//            guard let email = user.email else {
+//                print("cant find email")
+//                return
+//            }
+//            resetPasswordUser(email: email)
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//    }
+    
+    func updateEmail() {
+        guard let user = Auth.auth().currentUser else {
+            print("cant find user")
+            return
+        }
+        guard let email = user.email else {
+            print("cant find user email")
+            return
+        }
+        user.sendEmailVerification(beforeUpdatingEmail: email)
+    }
+    
+    func createUser(email: String, password: String) async throws -> AuthDataResultModel {
+        let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        return AuthDataResultModel(user: authResult.user)
+    }
+    
+    func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
+        let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+        return AuthDataResultModel(user: authResult.user)
+    }
+    
+    func resetPasswordUser(email: String) async throws {
+        do {
+            try await Auth.auth().sendPasswordReset(withEmail: email)
+        } catch let error {
+            print("error mail non trouvé")
         }
     }
     

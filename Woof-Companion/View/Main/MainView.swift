@@ -14,23 +14,38 @@ struct MainView: View {
     
     var body: some View {
         
-        VStack {
-            TotalActivityView()
-            LastWalkView()
-            
-            Button {
-                coordinator.push(.history)
-            } label: {
-                Text("Navigation Test")
+        NavigationView {
+            VStack {
+                TotalActivityView()
+                LastWalkView()
+                Spacer()
+                Button {
+                    authManager.isLogged = false
+                } label: {
+                    Text("Navigation Test")
+                }
             }
-            
-            Button {
-                authManager.isLogged = false
-            } label: {
-                Text("Navigation Test")
-            }
+            .frame(maxHeight: .infinity)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        coordinator.push(.parameters)
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(.black.opacity(0.4))
+                            .font(.title3)
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack {
+                        Image(systemName: "pawprint")
+                        Text("Woof Companion")
+                    }
+                    .font(.headline)
+                }
         }
-        .frame(maxHeight: .infinity)        
+        }
     }
 }
 

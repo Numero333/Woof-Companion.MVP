@@ -13,6 +13,9 @@
 		74239A2C2BD904C100EFC2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74239A2B2BD904C100EFC2BE /* AppDelegate.swift */; };
 		74239A2F2BD9056700EFC2BE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 74239A2E2BD9056700EFC2BE /* FirebaseAuth */; };
 		742824C82BD944540028E9D0 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824C72BD944540028E9D0 /* SignUpView.swift */; };
+		742824CA2BD94E1C0028E9D0 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824C92BD94E1C0028E9D0 /* SignInView.swift */; };
+		742824CC2BD9603D0028E9D0 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */; };
+		742824CE2BD996A70028E9D0 /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824CD2BD996A70028E9D0 /* ParametersView.swift */; };
 		748E4E632BD907040044035F /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E4E622BD907040044035F /* AuthView.swift */; };
 		748E4E672BD907DC0044035F /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E4E662BD907DC0044035F /* SignInEmailViewModel.swift */; };
 		748E4E692BD90FA60044035F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E4E682BD90FA60044035F /* AuthManager.swift */; };
@@ -59,6 +62,9 @@
 		74239A242BD9027100EFC2BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74239A2B2BD904C100EFC2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		742824C72BD944540028E9D0 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		742824C92BD94E1C0028E9D0 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		742824CD2BD996A70028E9D0 /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
 		748E4E622BD907040044035F /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		748E4E662BD907DC0044035F /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
 		748E4E682BD90FA60044035F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				748E4E622BD907040044035F /* AuthView.swift */,
+				742824C92BD94E1C0028E9D0 /* SignInView.swift */,
+				742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */,
 				742824C72BD944540028E9D0 /* SignUpView.swift */,
 			);
 			path = Authentification;
@@ -270,6 +278,7 @@
 			children = (
 				749D036A2BD8006C00210B09 /* LastWalkView.swift */,
 				749D036F2BD8017D00210B09 /* TotalActivityView.swift */,
+				742824CD2BD996A70028E9D0 /* ParametersView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -388,11 +397,12 @@
 			};
 			buildConfigurationList = 749D032C2BD7FE1800210B09 /* Build configuration list for PBXProject "Woof-Companion" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 749D03282BD7FE1800210B09;
 			packageReferences = (
@@ -448,6 +458,7 @@
 				748E4E6D2BD9115F0044035F /* AuthDataResultModel.swift in Sources */,
 				749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */,
 				748E4E672BD907DC0044035F /* SignInEmailViewModel.swift in Sources */,
+				742824CC2BD9603D0028E9D0 /* ResetPasswordView.swift in Sources */,
 				749D036E2BD8010800210B09 /* MainView.swift in Sources */,
 				748E4E632BD907040044035F /* AuthView.swift in Sources */,
 				749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */,
@@ -455,7 +466,9 @@
 				749D03812BD83D7500210B09 /* WeatherChoice.swift in Sources */,
 				749D03852BD8E86E00210B09 /* WalkModel.swift in Sources */,
 				749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */,
+				742824CE2BD996A70028E9D0 /* ParametersView.swift in Sources */,
 				749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */,
+				742824CA2BD94E1C0028E9D0 /* SignInView.swift in Sources */,
 				748E4E692BD90FA60044035F /* AuthManager.swift in Sources */,
 				749D03832BD8E83400210B09 /* WalkViewModel.swift in Sources */,
 				749D03792BD80A3600210B09 /* WalkView.swift in Sources */,
@@ -631,8 +644,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -640,9 +653,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fxm.Woof-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -661,8 +678,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -670,9 +687,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fxm.Woof-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

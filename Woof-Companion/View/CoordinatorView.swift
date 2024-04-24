@@ -20,10 +20,12 @@ struct CoordinatorView: View {
             
             if !authManager.isLogged {
                 coordinator.build(appView: .auth)
-                
                 // Navigation destination for managing transitions.
-                    .navigationDestination(for: AppView.self) { appView in
-                        coordinator.build(appView: appView) // Builds the appropriate view.
+                    .navigationDestination(for: SubView.self) { subView in
+                        coordinator.build(subView: subView) // Builds the appropriate view.
+                    }
+                    .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
+                        coordinator.build(fullScreenCover: fullScreenCover)
                     }
                 
             } else {
@@ -49,8 +51,8 @@ struct CoordinatorView: View {
                         .tag(AppView.walk)
                 }
                 // Navigation destination for managing transitions.
-                .navigationDestination(for: AppView.self) { appView in
-                    coordinator.build(appView: appView) // Builds the appropriate view.
+                .navigationDestination(for: SubView.self) { subView in
+                    coordinator.build(subView: subView) // Builds the appropriate view.
                 }
                 // Full screen cover for presenting modal views.
                 .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
@@ -88,8 +90,6 @@ struct CoordinatorTabView: View {
             coordinator.build(appView: .history)
         case .auth:
             coordinator.build(appView: .auth)
-        case .signUp:
-            coordinator.build(appView: .signUp)
         }
     }
 }
@@ -97,4 +97,3 @@ struct CoordinatorTabView: View {
 #Preview {
     CoordinatorView()
 }
-

@@ -39,19 +39,14 @@ struct SignUpView: View {
             }
             
             Button {
-//                vm.debug()
-                authManager.debug()
+                coordinator.pop()
+                coordinator.push(.signIn)
             } label: {
-                Text("Debug")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+                Text("Vous avez déja un compte ?")
             }
         }
-        .navigationTitle("Se connecter")
+        .navigationTitle("Créer un compte")
+        .navigationBarTitleDisplayMode(.large)
         .padding()
     }
 }

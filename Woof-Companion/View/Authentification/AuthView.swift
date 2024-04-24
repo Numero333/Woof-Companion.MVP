@@ -14,37 +14,47 @@ struct AuthView: View {
     var body: some View {
         VStack {
             Spacer()
-            Image(systemName: "house")
+            Image(systemName: "pawprint.circle")
                 .resizable()
-                .frame(width: 200, height: 200)
+                .frame(width: 150, height: 150)
                 .background()
             
             Spacer()
+            Text("L'application qui vous aide au quotidien avec votre chien 🐶")
+                .font(.headline)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+            Spacer()
             
-            Button {
-                coordinator.push(.signUp)
-            } label: {
-                Text("Créer un compte")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+            VStack(spacing: 10) {
+                Button {
+                    coordinator.push(.signUp)
+                } label: {
+                    Text("Créer un compte")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                Divider()
+                Button {
+                    coordinator.push(.signIn)
+                } label: {
+                    Text("Se connecter")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
             }
-            
-            Button {
-
-            } label: {
-                Text("Se connecter")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
+            Spacer()
         }
+        .navigationTitle("Woof Companion")
+        .navigationBarTitleDisplayMode(.large)
         .padding()
     }
 }

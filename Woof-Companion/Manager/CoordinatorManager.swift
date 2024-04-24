@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  CoordinatorManager.swift
 //  Woof-Companion
 //
 //  Created by François-Xavier on 23/04/2024.
@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//MARK: - Base View
 enum AppView: String, Identifiable {
     case main, walk, history
     
@@ -15,6 +16,7 @@ enum AppView: String, Identifiable {
     }
 }
 
+//MARK: - FullScreenCover View
 enum FullScreenCover: String, Identifiable {
     case finishedWalk
     
@@ -23,12 +25,15 @@ enum FullScreenCover: String, Identifiable {
     }
 }
 
-class Coordinator: ObservableObject {
+//MARK: - Coordinator Manager
+class CoordinatorManager: ObservableObject {
     
+    // MARK: Properties
     @Published var path = NavigationPath()
     @Published var fullScreenCover: FullScreenCover?
     @Published var selectedTab: AppView = .main
     
+    //MARK: - Methods
     func push(_ appView: AppView) {
         path.append(appView)
     }
@@ -49,6 +54,7 @@ class Coordinator: ObservableObject {
         self.fullScreenCover = nil
     }
     
+    //MARK: - View Builder
     @ViewBuilder
     func build(appView: AppView) -> some View {
         switch appView {

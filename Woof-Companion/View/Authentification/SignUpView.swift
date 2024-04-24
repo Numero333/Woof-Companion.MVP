@@ -13,19 +13,22 @@ struct SignUpView: View {
     @EnvironmentObject private var coordinator: CoordinatorManager
     @EnvironmentObject private var authManager: AuthManager
     
+    @FocusState private var isFocused
+    
     var body: some View {
-        VStack(spacing: 30) {
-            
+        VStack {
             TextField("Mail...", text: $authManager.email)
+                .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
+                .focused($isFocused)
             
             SecureField("Password...", text: $authManager.password)
+                .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
-            
             Button {
                 authManager.signUp()
             } label: {
@@ -44,10 +47,19 @@ struct SignUpView: View {
             } label: {
                 Text("Vous avez déja un compte ?")
             }
+            .padding(.top)
+            
         }
         .navigationTitle("Créer un compte")
         .navigationBarTitleDisplayMode(.large)
         .padding()
+        .onAppear {
+            isFocused = true
+        }
+        .onDisappear {
+            authManager.email = ""
+            authManager.password = ""
+        }
     }
 }
 

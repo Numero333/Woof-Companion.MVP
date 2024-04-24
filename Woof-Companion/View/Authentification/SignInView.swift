@@ -11,18 +11,26 @@ struct SignInView: View {
     @EnvironmentObject private var coordinator: CoordinatorManager
     @EnvironmentObject private var authManager: AuthManager
     
+    @FocusState private var isFocused
+    
     var body: some View {
-        VStack(spacing: 30) {
+        
+        VStack {
             
-            TextField("Mail...", text: $authManager.email)
-                .padding()
-                .background(Color.gray.opacity(0.3))
-                .cornerRadius(10)
-            
-            SecureField("Password...", text: $authManager.password)
-                .padding()
-                .background(Color.gray.opacity(0.3))
-                .cornerRadius(10)
+        TextField("Mail...", text: $authManager.email)
+            .textInputAutocapitalization(.never)
+            .padding()
+            .background(Color.gray.opacity(0.3))
+            .cornerRadius(10)
+            .focused($isFocused)
+        
+        SecureField("Password...", text: $authManager.password)
+            .textInputAutocapitalization(.never)
+            .padding()
+            .background(Color.gray.opacity(0.3))
+            .cornerRadius(10)
+        
+       
             
             Button {
                 authManager.signIn()
@@ -41,10 +49,18 @@ struct SignInView: View {
             } label: {
                 Text("Mot de passe oublié ?")
             }
+            .padding(.top)
         }
         .navigationTitle("Se connecter")
         .navigationBarTitleDisplayMode(.large)
         .padding()
+        .onAppear {
+            isFocused = true
+        }
+        .onDisappear {
+            authManager.email = ""
+            authManager.password = ""
+        }
     }
 }
 

@@ -33,6 +33,18 @@ final class AuthManager: ObservableObject {
         return AuthDataResultModel(user: user)
     }
     
+    func deleteUser() {
+        let user = Auth.auth().currentUser
+
+        user?.delete { error in
+          if let error = error {
+            // An error happened.
+          } else {
+            // Account deleted.
+          }
+        }
+    }
+    
     func signOut() throws {
         do {
             try Auth.auth().signOut()

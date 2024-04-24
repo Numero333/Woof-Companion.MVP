@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74239A252BD9027100EFC2BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74239A242BD9027100EFC2BE /* GoogleService-Info.plist */; };
+		74239A282BD9031000EFC2BE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 74239A272BD9031000EFC2BE /* FirebaseAnalytics */; };
+		74239A2A2BD9031000EFC2BE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 74239A292BD9031000EFC2BE /* FirebaseAnalyticsSwift */; };
+		74239A2C2BD904C100EFC2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74239A2B2BD904C100EFC2BE /* AppDelegate.swift */; };
+		74239A2F2BD9056700EFC2BE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 74239A2E2BD9056700EFC2BE /* FirebaseAuth */; };
 		749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */; };
 		749D03392BD7FE1A00210B09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749D03382BD7FE1A00210B09 /* Assets.xcassets */; };
 		749D033C2BD7FE1A00210B09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749D033B2BD7FE1A00210B09 /* Preview Assets.xcassets */; };
@@ -46,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74239A242BD9027100EFC2BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74239A2B2BD904C100EFC2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		749D03312BD7FE1800210B09 /* Woof-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woof-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woof_CompanionApp.swift; sourceTree = "<group>"; };
 		749D03382BD7FE1A00210B09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74239A2A2BD9031000EFC2BE /* FirebaseAnalyticsSwift in Frameworks */,
+				74239A2F2BD9056700EFC2BE /* FirebaseAuth in Frameworks */,
+				74239A282BD9031000EFC2BE /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +105,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74239A2D2BD9056700EFC2BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74239A302BD905BA00EFC2BE /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
 		749D03282BD7FE1800210B09 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +126,7 @@
 				749D03442BD7FE1A00210B09 /* Woof-CompanionTests */,
 				749D034E2BD7FE1A00210B09 /* Woof-CompanionUITests */,
 				749D03322BD7FE1800210B09 /* Products */,
+				74239A2D2BD9056700EFC2BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +143,7 @@
 		749D03332BD7FE1800210B09 /* Woof-Companion */ = {
 			isa = PBXGroup;
 			children = (
+				74239A242BD9027100EFC2BE /* GoogleService-Info.plist */,
 				749D03862BD8E8A900210B09 /* Manager */,
 				749D03612BD7FEF500210B09 /* ApplicationLifeCycle */,
 				749D035E2BD7FEC800210B09 /* Model */,
@@ -173,10 +199,11 @@
 		749D03602BD7FED400210B09 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				74239A302BD905BA00EFC2BE /* Authentification */,
 				749D03712BD8053A00210B09 /* CoordinatorView.swift */,
 				749D03632BD7FFFC00210B09 /* Main */,
-				749D03762BD809F900210B09 /* WalkView */,
-				749D03772BD809FD00210B09 /* HistoryView */,
+				749D03762BD809F900210B09 /* Walk */,
+				749D03772BD809FD00210B09 /* History */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */,
+				74239A2B2BD904C100EFC2BE /* AppDelegate.swift */,
 			);
 			path = ApplicationLifeCycle;
 			sourceTree = "<group>";
@@ -216,21 +244,21 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
-		749D03762BD809F900210B09 /* WalkView */ = {
+		749D03762BD809F900210B09 /* Walk */ = {
 			isa = PBXGroup;
 			children = (
 				749D03782BD80A3600210B09 /* WalkView.swift */,
 				749D037C2BD80AE000210B09 /* FinishedWalkView.swift */,
 			);
-			path = WalkView;
+			path = Walk;
 			sourceTree = "<group>";
 		};
-		749D03772BD809FD00210B09 /* HistoryView */ = {
+		749D03772BD809FD00210B09 /* History */ = {
 			isa = PBXGroup;
 			children = (
 				749D037A2BD80A4000210B09 /* HistoryView.swift */,
 			);
-			path = HistoryView;
+			path = History;
 			sourceTree = "<group>";
 		};
 		749D03862BD8E8A900210B09 /* Manager */ = {
@@ -259,6 +287,11 @@
 			dependencies = (
 			);
 			name = "Woof-Companion";
+			packageProductDependencies = (
+				74239A272BD9031000EFC2BE /* FirebaseAnalytics */,
+				74239A292BD9031000EFC2BE /* FirebaseAnalyticsSwift */,
+				74239A2E2BD9056700EFC2BE /* FirebaseAuth */,
+			);
 			productName = "Woof-Companion";
 			productReference = 749D03312BD7FE1800210B09 /* Woof-Companion.app */;
 			productType = "com.apple.product-type.application";
@@ -331,6 +364,9 @@
 				Base,
 			);
 			mainGroup = 749D03282BD7FE1800210B09;
+			packageReferences = (
+				74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 749D03322BD7FE1800210B09 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				749D033C2BD7FE1A00210B09 /* Preview Assets.xcassets in Resources */,
+				74239A252BD9027100EFC2BE /* GoogleService-Info.plist in Resources */,
 				749D03392BD7FE1A00210B09 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +413,7 @@
 				749D03722BD8053A00210B09 /* CoordinatorView.swift in Sources */,
 				749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */,
 				749D037B2BD80A4000210B09 /* HistoryView.swift in Sources */,
+				74239A2C2BD904C100EFC2BE /* AppDelegate.swift in Sources */,
 				749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */,
 				749D036E2BD8010800210B09 /* MainView.swift in Sources */,
 				749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */,
@@ -718,6 +756,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.24.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		74239A272BD9031000EFC2BE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		74239A292BD9031000EFC2BE /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		74239A2E2BD9056700EFC2BE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 749D03292BD7FE1800210B09 /* Project object */;
 }

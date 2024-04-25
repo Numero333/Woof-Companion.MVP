@@ -11,7 +11,7 @@ import XCTest
 final class Woof_CompanionTests: XCTestCase {
 
     func testBitriseLetsGo() {
-        XCTAssert(true)
+        XCTAssert(false)
     }
 
 }

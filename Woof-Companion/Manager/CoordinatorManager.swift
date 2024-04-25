@@ -65,7 +65,7 @@ final class CoordinatorManager: ObservableObject {
     }
     
     //MARK: - View Builder
-    @ViewBuilder
+    @MainActor @ViewBuilder
     func build(appView: AppView) -> some View {
         switch appView {
         case .main:
@@ -98,6 +98,7 @@ final class CoordinatorManager: ObservableObject {
         switch fullScreenCover {
         case .finishedWalk:
             FinishedWalkView()
+                .environmentObject(self)
         }
     }
 }

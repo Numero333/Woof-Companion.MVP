@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class AppModel: ObservableObject {
+    
+    //MARK: - Properties
+    @Published var walkModel = WalkModel()
+}

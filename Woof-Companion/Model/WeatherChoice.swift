@@ -11,12 +11,12 @@ enum WeatherChoice: String, CaseIterable {
     case rain, sun, cloud, storm, wind
     
     var description: String {
-            switch self {
-            case .rain: return "Pluie"
-            case .sun: return "Soleil"
-            case .cloud: return "Nuage"
-            case .storm: return "Orage"
-            case .wind: return "Vent"
-            }
+        switch self {
+        case .rain: return "Pluie"
+        case .sun: return "Soleil"
+        case .cloud: return "Nuage"
+        case .storm: return "Orage"
+        case .wind: return "Vent"
         }
+    }
 }

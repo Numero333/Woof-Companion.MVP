@@ -26,7 +26,7 @@ final class FirestoreManager {
         if documentSnapshot.exists {
             return documentSnapshot
         } else {
-            throw NSError(domain: "FirestoreError", code: 404, userInfo: ["message": "Document not found"])
+            throw NSError(domain: "FirestoreError", code: 404, userInfo: ["message": "Une erreur est survenu"])
         }
     }
 

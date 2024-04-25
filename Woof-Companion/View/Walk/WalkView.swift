@@ -9,18 +9,15 @@ import SwiftUI
 
 struct WalkView: View {
     @EnvironmentObject private var coordinator: CoordinatorManager
-//    @Environment(\.presentationMode) var presentationMode
-    
-    #warning("bouger timer manager et pedometer")
     @ObservedObject var timer = TimerManager()
     @ObservedObject var pedometer = PedometerManager()
     
     @State var isStarted = false
     @State var ending =  false
-        
+    
     let vm = WalkViewModel()
     
-   @State var currentWalk = WalkModel()
+    @State var currentWalk = WalkModel()
     
     var body: some View {
         
@@ -43,7 +40,7 @@ struct WalkView: View {
                 .padding(.horizontal)
             
             MiddleCell(value: timer.displayElapsedTime , label: "Temps")
-                        
+            
             Spacer()
             
             HStack {
@@ -73,6 +70,7 @@ struct WalkView: View {
                 
                 Button {
                     timer.stop()
+                    
                     currentWalk.distance = pedometer.currentDistance as! Double
                     currentWalk.duration = timer.elapsedTime
                     currentWalk.startDate = timer.startHour

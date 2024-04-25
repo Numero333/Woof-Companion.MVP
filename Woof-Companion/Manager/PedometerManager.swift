@@ -83,7 +83,7 @@ final class PedometerManager: ObservableObject {
     private func formatDistance(distance: NSNumber) -> String {
         let kilometers = Int(truncating: distance) / 1000
         let meters = Int(truncating: distance) % 1000
-        let formatDistance = String(format: "%02d.%02d", kilometers, meters)
+        let formatDistance = String(format: "%02d.%03d", kilometers, meters)
         return formatDistance
     }
 }

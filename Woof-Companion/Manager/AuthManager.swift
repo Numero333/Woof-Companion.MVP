@@ -45,7 +45,7 @@ final class AuthManager: ObservableObject {
     // Sign Up the user
     func signUp(email: String, password: String) async throws {
         guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
-            throw NSError(domain: "AuthError", code: 1002, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password."])
+            throw NSError(domain: "AuthError", code: 1002, userInfo: [NSLocalizedDescriptionKey: "Invalide email or password."])
         }
         let _ = try await createUser(email: email, password: password)
         let user = try getAuthUser()
@@ -56,7 +56,7 @@ final class AuthManager: ObservableObject {
     // Sing In the user and check mail and password
     func signIn(email: String, password: String) async throws {
         guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
-            throw NSError(domain: "AuthError", code: 1003, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password."])
+            throw NSError(domain: "AuthError", code: 1003, userInfo: [NSLocalizedDescriptionKey: "Invalide email or password."])
         }
         let _ = try await signInUser(email: email, password: password)
         self.isLogged = true
@@ -65,7 +65,7 @@ final class AuthManager: ObservableObject {
     // mail update for the authenticated user
     func updateEmail(email: String) async throws {
         guard let user = Auth.auth().currentUser, let currentEmail = user.email else {
-            throw NSError(domain: "AuthError", code: 1004, userInfo: [NSLocalizedDescriptionKey: "Cannot find user or email."])
+            throw NSError(domain: "AuthError", code: 1004, userInfo: [NSLocalizedDescriptionKey: "Aucun utilisateur associé a cette adresse."])
         }
         try await user.sendEmailVerification(beforeUpdatingEmail: email)
     }

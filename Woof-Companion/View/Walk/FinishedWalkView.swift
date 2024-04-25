@@ -65,6 +65,9 @@ struct FinishedWalkView: View {
             Button {
                 coordinator.dismissFullScreenCover()
                 coordinator.selectedTab = .main
+                
+                #warning("Call to save into database")
+                
 //                walkData.weather = weatherTag.description
 //                walkData.energy = Int(energy2)
 //                walkData.date = Date()

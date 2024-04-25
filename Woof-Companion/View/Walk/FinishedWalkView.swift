@@ -89,7 +89,7 @@ struct FinishedWalkView: View {
                 Circle()
             }
         }
-        .presentationBackground(.thinMaterial)
+//        .presentationBackground(.thinMaterial)
     }
 }
 

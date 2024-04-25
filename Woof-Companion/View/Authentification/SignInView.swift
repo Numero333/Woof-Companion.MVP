@@ -58,9 +58,9 @@ struct SignInView: View {
         .onDisappear {
             vm.clearTextInput()
         }
-        .onChange(of: vm.isLogged) {
-            coordinator.isLogged = vm.isLogged
-        }
+//        .onChange(of: vm.isLogged) {
+//            coordinator.isLogged = vm.isLogged
+//        }
         .onReceive(vm.$errorMessage, perform: { _ in
             if vm.errorMessage != nil {
                 showAlert = true

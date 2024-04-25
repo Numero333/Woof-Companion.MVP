@@ -51,7 +51,6 @@ struct SignUpView: View {
             .padding(.top)
             
         }
-        #warning("remember")
 //        .onChange(of: vm.isLogged) {
 //            coordinator.isLogged = vm.isLogged
 //        }

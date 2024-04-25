@@ -62,9 +62,9 @@ struct CoordinatorView: View {
             }
         }
         // React of user LogIn / LogOut
-        .onChange(of: coordinator.isLogged) {
-            coordinator.popToRoot()
-        }
+//        .onChange(of: coordinator.isLogged) {
+//            coordinator.popToRoot()
+//        }
         // Injects the coordinator as an environment object available to child views.
         .environmentObject(coordinator)
         .environmentObject(appModel)

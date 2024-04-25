@@ -17,7 +17,6 @@
 		742824CC2BD9603D0028E9D0 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */; };
 		742824CE2BD996A70028E9D0 /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824CD2BD996A70028E9D0 /* ParametersView.swift */; };
 		748E4E632BD907040044035F /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E4E622BD907040044035F /* AuthView.swift */; };
-		748E4E672BD907DC0044035F /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E4E662BD907DC0044035F /* SignInEmailViewModel.swift */; };
 		748E4E692BD90FA60044035F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E4E682BD90FA60044035F /* AuthManager.swift */; };
 		748E4E6D2BD9115F0044035F /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748E4E6C2BD9115F0044035F /* AuthDataResultModel.swift */; };
 		749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */; };
@@ -39,6 +38,11 @@
 		749D03852BD8E86E00210B09 /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03842BD8E86E00210B09 /* WalkModel.swift */; };
 		749D03882BD8E8B800210B09 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03872BD8E8B800210B09 /* TimerManager.swift */; };
 		749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03892BD8E8CD00210B09 /* PedometerManager.swift */; };
+		74F275372BDA511A00B9F3DD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275362BDA511A00B9F3DD /* FirebaseFirestore */; };
+		74F275392BDA511A00B9F3DD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275382BDA511A00B9F3DD /* FirebaseFirestoreSwift */; };
+		74F2753D2BDA6E1000B9F3DD /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */; };
+		74F2753F2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */; };
+		74F275422BDA74A100B9F3DD /* AuthentificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +70,6 @@
 		742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		742824CD2BD996A70028E9D0 /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
 		748E4E622BD907040044035F /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		748E4E662BD907DC0044035F /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
 		748E4E682BD90FA60044035F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		748E4E6C2BD9115F0044035F /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
 		749D03312BD7FE1800210B09 /* Woof-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woof-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +94,9 @@
 		749D03842BD8E86E00210B09 /* WalkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkModel.swift; sourceTree = "<group>"; };
 		749D03872BD8E8B800210B09 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		749D03892BD8E8CD00210B09 /* PedometerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerManager.swift; sourceTree = "<group>"; };
+		74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataStoreManager.swift; sourceTree = "<group>"; };
+		74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +104,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74F275392BDA511A00B9F3DD /* FirebaseFirestoreSwift in Frameworks */,
 				74239A2A2BD9031000EFC2BE /* FirebaseAnalyticsSwift in Frameworks */,
+				74F275372BDA511A00B9F3DD /* FirebaseFirestore in Frameworks */,
 				74239A2F2BD9056700EFC2BE /* FirebaseAuth in Frameworks */,
 				74239A282BD9031000EFC2BE /* FirebaseAnalytics in Frameworks */,
 			);
@@ -229,7 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				749D03822BD8E83400210B09 /* WalkViewModel.swift */,
-				748E4E662BD907DC0044035F /* SignInEmailViewModel.swift */,
+				74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -307,6 +315,8 @@
 				749D03872BD8E8B800210B09 /* TimerManager.swift */,
 				749D03892BD8E8CD00210B09 /* PedometerManager.swift */,
 				748E4E682BD90FA60044035F /* AuthManager.swift */,
+				74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */,
+				74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -331,6 +341,8 @@
 				74239A272BD9031000EFC2BE /* FirebaseAnalytics */,
 				74239A292BD9031000EFC2BE /* FirebaseAnalyticsSwift */,
 				74239A2E2BD9056700EFC2BE /* FirebaseAuth */,
+				74F275362BDA511A00B9F3DD /* FirebaseFirestore */,
+				74F275382BDA511A00B9F3DD /* FirebaseFirestoreSwift */,
 			);
 			productName = "Woof-Companion";
 			productReference = 749D03312BD7FE1800210B09 /* Woof-Companion.app */;
@@ -455,18 +467,20 @@
 				749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */,
 				749D037B2BD80A4000210B09 /* HistoryView.swift in Sources */,
 				74239A2C2BD904C100EFC2BE /* AppDelegate.swift in Sources */,
+				74F2753F2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift in Sources */,
 				748E4E6D2BD9115F0044035F /* AuthDataResultModel.swift in Sources */,
 				749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */,
-				748E4E672BD907DC0044035F /* SignInEmailViewModel.swift in Sources */,
 				742824CC2BD9603D0028E9D0 /* ResetPasswordView.swift in Sources */,
 				749D036E2BD8010800210B09 /* MainView.swift in Sources */,
 				748E4E632BD907040044035F /* AuthView.swift in Sources */,
 				749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */,
 				749D03882BD8E8B800210B09 /* TimerManager.swift in Sources */,
+				74F2753D2BDA6E1000B9F3DD /* FirestoreManager.swift in Sources */,
 				749D03812BD83D7500210B09 /* WeatherChoice.swift in Sources */,
 				749D03852BD8E86E00210B09 /* WalkModel.swift in Sources */,
 				749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */,
 				742824CE2BD996A70028E9D0 /* ParametersView.swift in Sources */,
+				74F275422BDA74A100B9F3DD /* AuthentificationViewModel.swift in Sources */,
 				749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */,
 				742824CA2BD94E1C0028E9D0 /* SignInView.swift in Sources */,
 				748E4E692BD90FA60044035F /* AuthManager.swift in Sources */,
@@ -840,6 +854,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		74F275362BDA511A00B9F3DD /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		74F275382BDA511A00B9F3DD /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

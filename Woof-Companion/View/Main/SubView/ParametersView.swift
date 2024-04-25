@@ -10,7 +10,7 @@ import SwiftUI
 struct ParametersView: View {
     
     @EnvironmentObject private var coordinator: CoordinatorManager
-    @EnvironmentObject private var authManager: AuthManager
+    @ObservedObject private var vm = AuthentificationViewModel()
     
     @State private var isLogOutAlertIsPresented =  false
     @State private var isDeleteAlertIsPresented =  false
@@ -18,17 +18,14 @@ struct ParametersView: View {
     var body: some View {
         List {
             Button("Se déconnecter") { isLogOutAlertIsPresented.toggle() }
-            Button("Supprimer le compte") { isDeleteAlertIsPresented.toggle() }
+            Button("Supprimer le compte") {
+                isDeleteAlertIsPresented.toggle() }
+            .foregroundStyle(.red)
         }
         .alert("Êtes vous sur de vouloir vous déconnecter ?", isPresented: $isLogOutAlertIsPresented, actions: {
             Button("Oui") {
-#warning("refacto")
-                do {
-                    try authManager.signOut()
-                } catch let error {
-                    print(error)
-                }
-                
+                vm.signOut()
+                coordinator.isLogged = false
                 coordinator.popToRoot()
             }
             Button("Non") {
@@ -37,14 +34,17 @@ struct ParametersView: View {
         })
         .alert("Êtes vous sur de vouloir supprimer votre compte ?", isPresented: $isDeleteAlertIsPresented, actions: {
             Button("Oui") {
-#warning("refacto")
-                authManager.deleteUser()
+                vm.deleteUser()
+                coordinator.isLogged = false
                 coordinator.popToRoot()
             }
             Button("Non") {
                 isLogOutAlertIsPresented.toggle()
             }
         })
+        .onDisappear {
+            coordinator.isLogged = vm.isLogged
+        }
     }
 }
 

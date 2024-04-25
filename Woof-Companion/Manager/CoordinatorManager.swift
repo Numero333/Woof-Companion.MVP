@@ -41,31 +41,27 @@ final class CoordinatorManager: ObservableObject {
     @Published var path = NavigationPath()
     @Published var fullScreenCover: FullScreenCover?
     @Published var selectedTab: AppView = .main
+    @Published var isLogged: Bool = false
     
     //MARK: - Methods
     func push(_ subView: SubView) {
         path.append(subView)
-        
     }
     
     func present(fullScreenCover: FullScreenCover) {
         self.fullScreenCover = fullScreenCover
-        
     }
     
     func pop() {
         path.removeLast()
-        
     }
     
     func popToRoot() {
         path.removeLast(path.count)
-        
     }
     
     func dismissFullScreenCover() {
         self.fullScreenCover = nil
-        
     }
     
     //MARK: - View Builder

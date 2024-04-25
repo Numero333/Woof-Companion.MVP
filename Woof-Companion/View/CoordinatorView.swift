@@ -12,13 +12,13 @@ struct CoordinatorView: View {
     
     // StateObject to manage the state and logic of navigation throughout the app.
     @StateObject private var coordinator = CoordinatorManager()
-    @ObservedObject private var authManager = AuthManager()
+    private var authManager = AuthManager()
     
     var body: some View {
         // Navigation stack to manage navigable views controlled by the coordinator.
         NavigationStack(path: $coordinator.path) {
             
-            if !authManager.isLogged {
+            if !coordinator.isLogged {
                 coordinator.build(appView: .auth)
                 // Navigation destination for managing transitions.
                     .navigationDestination(for: SubView.self) { subView in
@@ -61,17 +61,15 @@ struct CoordinatorView: View {
             }
         }
         // React of user LogIn / LogOut
-        .onChange(of: authManager.isLogged) {
+        .onChange(of: coordinator.isLogged) {
             coordinator.popToRoot()
         }
         // Injects the coordinator as an environment object available to child views.
         .environmentObject(coordinator)
-        .environmentObject(authManager)
         .onAppear {
             let authUser = try? authManager.getAuthUser()
-            authManager.isLogged = authUser == nil ? false : true
+            coordinator.isLogged = authUser == nil ? false : true
         }
-        
     }
 }
 

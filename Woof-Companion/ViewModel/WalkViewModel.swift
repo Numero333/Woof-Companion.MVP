@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class WalkViewModel: ObservableObject {
     
     func formatSpeed(speed: String) -> String {

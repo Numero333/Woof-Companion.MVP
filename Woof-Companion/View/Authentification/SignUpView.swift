@@ -16,20 +16,27 @@ struct SignUpView: View {
     @FocusState private var isFocused
     @State private var showAlert = false
     
+    //MARK: - Body
     var body: some View {
-        VStack {
+        Spacer()
+        ScrollView {
+            Spacer()
             TextField("Mail...", text: $vm.email)
                 .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
                 .focused($isFocused)
+                .padding(.horizontal)
             
             SecureField("Password...", text: $vm.password)
                 .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
+                .padding(.horizontal)
+            
+            
             Button {
                 vm.signUp()
             } label: {
@@ -41,6 +48,7 @@ struct SignUpView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
+            .padding(.horizontal)
             
             Button {
                 coordinator.pop()
@@ -49,11 +57,11 @@ struct SignUpView: View {
                 Text("Vous avez déja un compte ?")
             }
             .padding(.top)
-            
         }
-//        .onChange(of: vm.isLogged) {
-//            coordinator.isLogged = vm.isLogged
-//        }
+                
+        .onChange(of: vm.isLogged) { _ in
+            coordinator.isLogged = vm.isLogged
+        }
         .navigationTitle("Créer un compte")
         .navigationBarTitleDisplayMode(.large)
         .padding()

@@ -8,91 +8,94 @@
 import SwiftUI
 
 struct WalkView: View {
+    
+    //MARK: - Properties
     @EnvironmentObject private var coordinator: CoordinatorManager
     @EnvironmentObject private var appModel: AppModel
     @ObservedObject var timer = TimerManager()
     @ObservedObject var pedometer = PedometerManager()
-    
-    
-    
     @ObservedObject var vm = WalkViewModel()
-    
     @State var currentWalk = WalkModel()
     
+    //MARK: - Body
     var body: some View {
         
-        VStack(spacing: 20) {
-            HStack {
-                
-                TopCell(value: "\(timer.startHour)", label: "Heure de début")
-                    .frame(maxWidth: .infinity)
-                
-                TopCell(value: "\(vm.formatSpeed(speed: pedometer.speed)) m/s", label: "Allure.Moy")
-                    .frame(maxWidth: .infinity)
-            }
-            .padding(.top, 50)
-            
-            Spacer()
-            
-            MiddleCell(value: pedometer.elapsedDistanceFormatted, label: "Kilomètres")
-            
-            Divider()
-                .padding(.horizontal)
-            
-            MiddleCell(value: timer.displayElapsedTime , label: "Temps")
-            
-            Spacer()
-            
-            HStack {
-                Button {
+        NavigationView {
+            VStack(spacing: 20) {
+                HStack {
                     
-                    if vm.isStarted {
-                        timer.pause()
-                        vm.isStarted.toggle()
+                    TopCell(value: "\(timer.startHour)", label: "Heure de début")
+                        .frame(maxWidth: .infinity)
+                    
+                    TopCell(value: "\(vm.formatSpeed(speed: pedometer.speed)) m/s", label: "Allure.Moy")
+                        .frame(maxWidth: .infinity)
+                }
+                .padding(.top, 50)
+                
+                Spacer()
+                
+                MiddleCell(value: pedometer.elapsedDistanceFormatted, label: "Kilomètres")
+                
+                Divider()
+                    .padding(.horizontal)
+                
+                MiddleCell(value: timer.displayElapsedTime , label: "Temps")
+                
+                Spacer()
+                
+                HStack {
+                    Button {
                         
-                    } else {
-                        pedometer.startCountingSteps()
-                        timer.start()
-                        vm.isStarted.toggle()
+                        if vm.isStarted {
+                            timer.pause()
+                            vm.isStarted.toggle()
+                            
+                        } else {
+                            pedometer.startCountingSteps()
+                            timer.start()
+                            vm.isStarted.toggle()
+                        }
+                        
+                    } label: {
+                        Image(systemName: vm.isStarted ? "pause" : "play.fill")
+                            .font(.system(size: 40, weight: .heavy))
+                            .foregroundColor(.white)
+                            .padding(25)
+                            .background(
+                                Circle()
+                                    .foregroundColor(.black))
                     }
+                    .padding(.bottom, 40)
+                    .padding(.trailing, 70)
                     
-                } label: {
-                    Image(systemName: vm.isStarted ? "pause" : "play.fill")
-                        .font(.system(size: 40, weight: .heavy))
-                        .foregroundColor(.white)
-                        .padding(25)
-                        .background(
-                            Circle()
-                                .foregroundColor(.black))
+                    Button {
+                        timer.stop()
+                        vm.isStarted.toggle()
+                        appModel.walkModel.distance = pedometer.currentDistance as? Double ?? 0
+                        appModel.walkModel.duration = timer.elapsedTime
+                        appModel.walkModel.startDate = timer.startHour
+                        appModel.walkModel.speed = pedometer.speed
+                        appModel.walkModel.totalInSecond = timer.totalInSecond
+                        
+                        coordinator.present(fullScreenCover: .finishedWalk)
+                    } label: {
+                        Image(systemName: "stop")
+                            .font(.system(size: 40, weight: .heavy))
+                            .foregroundColor(.white)
+                            .padding(25)
+                            .background(
+                                Circle()
+                                    .foregroundColor(.black))
+                    }
+                    .padding(.bottom, 40)
                 }
-                .padding(.bottom, 40)
-                .padding(.trailing, 70)
-                
-                Button {
-                    timer.stop()
-                    vm.isStarted.toggle()
-                    appModel.walkModel.distance = pedometer.currentDistance as! Double
-                    appModel.walkModel.duration = timer.elapsedTime
-                    appModel.walkModel.startDate = timer.startHour
-                    appModel.walkModel.speed = pedometer.speed
-                    appModel.walkModel.totalInSecond = timer.totalInSecond
-                    
-                    coordinator.present(fullScreenCover: .finishedWalk)
-                } label: {
-                    Image(systemName: "stop")
-                        .font(.system(size: 40, weight: .heavy))
-                        .foregroundColor(.white)
-                        .padding(25)
-                        .background(
-                            Circle()
-                                .foregroundColor(.black))
-                }
-                .padding(.bottom, 40)
             }
-        }
-        .environmentObject(vm)
+            .environmentObject(vm)
         .frame(maxHeight: .infinity)
+        .navigationTitle("Ballade")
         .background(Color(red: 0.969, green: 0.392, blue: 0.0).opacity(0.7))
+        }
+        
     }
 }
 

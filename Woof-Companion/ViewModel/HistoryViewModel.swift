@@ -11,14 +11,18 @@ import Foundation
 final class HistoryViewModel: ObservableObject {
     
     //MARK: - Properties
-    private var walkDataStoreManager = WalkDataStoreManager()
-    private var auth = AuthManager()
     @Published var walkStored: [WalkModel] = []
     @Published var errorMessage: String?
     @Published var isLoading = false
+    private var walkDataStoreManager: WalkDataStoreManager
+    private var authManager: AuthManager
     private var user: AuthDataResultModel?
     
-    
+    //MARK: - Initialization
+    init(walkDataStoreManager: WalkDataStoreManager = WalkDataStoreManager(), authManager: AuthManager = AuthManager()){
+        self.walkDataStoreManager = walkDataStoreManager
+        self.authManager = authManager
+    }
     
     //MARK: - Methods
     func fetchAll() {
@@ -26,7 +30,7 @@ final class HistoryViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
-                self.user = try auth.getAuthUser()
+                self.user = try authManager.getAuthUser()
                 guard let user = user else {
                     self.errorMessage = NSError(domain: "History", code: -1).localizedDescription
                     return
@@ -39,6 +43,7 @@ final class HistoryViewModel: ObservableObject {
                         walkStored.append(walkDataDecoded)
                     }
                 }
+                walkStored = walkStored.reversed()
                 isLoading = false
             } catch let error {
                 self.errorMessage = error.localizedDescription

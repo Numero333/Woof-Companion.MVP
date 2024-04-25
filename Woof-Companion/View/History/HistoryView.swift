@@ -8,18 +8,16 @@
 import SwiftUI
 import FirebaseFirestore
 
-@MainActor
 struct HistoryView: View {
     
+    //MARK: - Properties
+    @ObservedObject private var vm = HistoryViewModel()
+    @State private var dataReceived = ""
     private var walkData = WalkDataStoreManager()
     private var auth = AuthManager()
     
-    @ObservedObject private var vm = HistoryViewModel()
-    
-    @State private var dataReceived = ""
-    
+    //MARK: - Body
     var body: some View {
-        
         VStack {
             NavigationView {
                 if vm.isLoading {
@@ -37,7 +35,7 @@ struct HistoryView: View {
                         }
                         .onDelete(perform: { indexSet in
                             indexSet.forEach { index in
-//                                vm.delete(id: vm.walkStored[index])
+
                             }
                         })
                     }
@@ -45,11 +43,10 @@ struct HistoryView: View {
                     .scrollContentBackground(.hidden)
                     .listStyle(.insetGrouped)
                     .cornerRadius(15)
+                    .navigationTitle("Historique")
                 }
             }
-            .navigationTitle("Historique")
         }
-        
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(#colorLiteral(red: 0.9970293641, green: 0.9413875937, blue: 0.7955917716, alpha: 1)))
         .onAppear {

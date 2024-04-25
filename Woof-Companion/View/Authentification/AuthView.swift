@@ -9,8 +9,10 @@ import SwiftUI
 
 struct AuthView: View {
     
+    //MARK: - Properties
     @EnvironmentObject private var coordinator: CoordinatorManager
     
+    //MARK: - Body
     var body: some View {
         VStack {
             Spacer()
@@ -20,10 +22,12 @@ struct AuthView: View {
                 .background()
             
             Spacer()
+            
             Text("L'application qui vous aide au quotidien avec votre chien 🐶")
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
+            
             Spacer()
             
             VStack(spacing: 10) {

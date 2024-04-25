@@ -10,7 +10,11 @@ import FirebaseFirestore
 
 final class WalkDataStoreManager {
     
-    private let firestoreManager = FirestoreManager()
+    private let firestoreManager: FirestoreManager
+    
+    init(fireStoreManager: FirestoreManager = FirestoreManager()) {
+        self.firestoreManager = fireStoreManager
+    }
     
     // Create a new document for the user
     func createNewDocumentForUser(user: AuthDataResultModel) async throws {

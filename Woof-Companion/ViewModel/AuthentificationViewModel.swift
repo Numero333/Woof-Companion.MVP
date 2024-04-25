@@ -6,11 +6,10 @@
 //
 
 import Foundation
-
 import SwiftUI
 
 @MainActor
-class AuthentificationViewModel: ObservableObject {
+final class AuthentificationViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var authManager = AuthManager()
@@ -19,6 +18,11 @@ class AuthentificationViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var isLogged: Bool = false
     @Published var disconnected: Bool = false
+    
+    //MARK: - Initialization
+    init(authManager: AuthManager = AuthManager()){
+        self.authManager = authManager
+    }
     
     // MARK: - Methods
     

@@ -7,14 +7,22 @@
 
 import Foundation
 
-@MainActor
 final class WalkViewModel: ObservableObject {
     
-    let walkDataStoreManager = WalkDataStoreManager()
-    let authManager = AuthManager()
+    //MARK: - Properties
     @Published var isStarted = false
     @Published var errorMessage: String?
     
+    let walkDataStoreManager: WalkDataStoreManager
+    let authManager: AuthManager
+    
+    //MARK: - Initialization
+    init(walkDataStoreManager: WalkDataStoreManager = WalkDataStoreManager(), authManager: AuthManager = AuthManager()){
+        self.walkDataStoreManager = walkDataStoreManager
+        self.authManager = authManager
+    }
+    
+    //MARK: - Methods
     func addWalk(for walkModel: WalkModel) {
         Task {
             do {

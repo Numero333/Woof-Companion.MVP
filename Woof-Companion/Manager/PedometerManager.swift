@@ -28,14 +28,17 @@ final class PedometerManager: ObservableObject {
     // Stores the walking or running speed.
     @Published var speed: String
     
+    // Show a error message
+    @Published var errorMessage: String?
+    
     // MARK: - Initialization
     // Initializes the pedometer and published properties.
-    init() {
-        pedometer = CMPedometer()
-        stepCount = 0
-        currentDistance = 0
-        elapsedDistanceFormatted = "00.00"
-        speed = "0"
+    init(pedometer: CMPedometer = CMPedometer()) {
+        self.pedometer = pedometer
+        self.stepCount = 0
+        self.currentDistance = 0
+        self.elapsedDistanceFormatted = "00.00"
+        self.speed = "0"
     }
     
     // MARK: Accessible Methods
@@ -49,7 +52,7 @@ final class PedometerManager: ObservableObject {
             pedometer.startUpdates(from: Date()) { [weak self] (data, error) in
                 guard let self = self, let data = data, error == nil else {
                     // Handles errors in starting the pedometer updates.
-                    print("Error starting pedometer: \(error?.localizedDescription ?? "Unknown error")")
+                    self?.errorMessage = ("Error starting pedometer: \(error?.localizedDescription ?? "Unknown error")")
                     return
                 }
                 
@@ -73,7 +76,7 @@ final class PedometerManager: ObservableObject {
             }
         } else {
             // Informs if the device does not support the pedometer.
-            print("Pedometer is not available on this device.")
+            self.errorMessage = ("Pedometer is not available on this device.")
         }
     }
     

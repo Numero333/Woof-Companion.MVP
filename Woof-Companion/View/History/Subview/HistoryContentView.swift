@@ -9,8 +9,10 @@ import SwiftUI
 
 struct HistoryContentView: View {
     
+    //MARK: - Properties
     let data: WalkModel
     
+    //MARK: - Body
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -27,6 +29,7 @@ struct HistoryContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(#colorLiteral(red: 0.9970293641, green: 0.9413875937, blue: 0.7955917716, alpha: 1)))
         }
+        .scrollContentBackground(.hidden)
         .background(Color(#colorLiteral(red: 0.9970293641, green: 0.9413875937, blue: 0.7955917716, alpha: 1)))
     }
     

@@ -9,6 +9,8 @@ import Foundation
 import FirebaseFirestore
 
 struct WalkModel: Codable, Hashable {
+    
+    //MARK: - Properties
     var startDate: String = " N/A "
     var distance: Double = 0.0
     var duration: Double = 0.0
@@ -33,6 +35,8 @@ struct WalkModel: Codable, Hashable {
         ]
     }
     
+    //MARK: - Methods
+    
     static func from(dictionary: [String: Any]) -> WalkModel {
             let startDate = dictionary["startDate"] as? String ?? "N/A"
             let distance = dictionary["distance"] as? Double ?? 0.0
@@ -43,7 +47,6 @@ struct WalkModel: Codable, Hashable {
             let totalInSecond = dictionary["totalInSecond"] as? Double ?? 0.0
             let date = (dictionary["date"] as? Timestamp)?.dateValue() ?? Date()
             let encounter = dictionary["encounter"] as? Int ?? 0
-            
             return WalkModel(startDate: startDate, distance: distance, duration: duration, energy: energy, speed: speed, weather: weather, totalInSecond: totalInSecond, date: date, encounter: encounter)
         }
 }

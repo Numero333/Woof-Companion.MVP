@@ -9,8 +9,10 @@ import SwiftUI
 
 struct TotalActivityView: View {
         
+    //MARK: - Properties
     let staticValue = "10"
     
+    //MARK: - Body
     var body: some View {
         VStack {
             Text("Total de la journée")

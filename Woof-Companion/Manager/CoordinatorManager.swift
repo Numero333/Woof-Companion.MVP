@@ -65,7 +65,7 @@ final class CoordinatorManager: ObservableObject {
     }
     
     //MARK: - View Builder
-    @MainActor @ViewBuilder
+    @ViewBuilder
     func build(appView: AppView) -> some View {
         switch appView {
         case .main:

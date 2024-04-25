@@ -12,7 +12,11 @@ import FirebasePerformance
 final class FirestoreManager {
     
     // Init Data base
-    let db = Firestore.firestore()
+    private let db: Firestore
+    
+    init(db: Firestore = Firestore.firestore()){
+        self.db = db
+    }
     
     // Create a document
     func setDocument(collectionPath: String, documentId: String, data: [String: Any]) async throws {

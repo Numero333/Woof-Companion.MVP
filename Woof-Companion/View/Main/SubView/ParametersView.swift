@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ParametersView: View {
     
+    //MARK: - Properties
     @EnvironmentObject private var coordinator: CoordinatorManager
     @ObservedObject private var vm = AuthentificationViewModel()
-    
     @State private var isLogOutAlertIsPresented =  false
     @State private var isDeleteAlertIsPresented =  false
     
+    //MARK: - Body
     var body: some View {
         List {
             Button("Se déconnecter") { isLogOutAlertIsPresented.toggle() }

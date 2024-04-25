@@ -9,10 +9,12 @@ import SwiftUI
 
 struct LastWalkView: View {
     
+    //MARK: - Properties
 //    @StateObject var vm = LastWalkViewModel()
     
     let staticValue = "10"
     
+    //MARK: - Body
     var body: some View {
         
         VStack {

@@ -9,21 +9,20 @@ import SwiftUI
 
 struct MainView: View {
     
+    //MARK: - Property
     @EnvironmentObject private var coordinator: CoordinatorManager
     @EnvironmentObject private var authManager: AuthManager
     
+    //MARK: - Body
     var body: some View {
         
         NavigationView {
             VStack {
+                Spacer()
                 TotalActivityView()
+                Spacer()
                 LastWalkView()
                 Spacer()
-                Button {
-                    authManager.isLogged = false
-                } label: {
-                    Text("Navigation Test")
-                }
             }
             .frame(maxHeight: .infinity)
             .toolbar {
@@ -41,10 +40,12 @@ struct MainView: View {
                     HStack {
                         Image(systemName: "pawprint")
                         Text("Woof Companion")
+                        
                     }
                     .font(.headline)
                 }
-        }
+            }
+            .navigationTitle("Accueil")
         }
     }
 }

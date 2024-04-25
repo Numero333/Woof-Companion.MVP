@@ -39,6 +39,7 @@
 		749D03882BD8E8B800210B09 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03872BD8E8B800210B09 /* TimerManager.swift */; };
 		749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03892BD8E8CD00210B09 /* PedometerManager.swift */; };
 		74AFCDB42BDAC33B0089F174 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 74AFCDB32BDAC33B0089F174 /* FirebasePerformance */; };
+		74AFCDB62BDAF5C10089F174 /* AuthManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AFCDB52BDAF5C10089F174 /* AuthManagerTests.swift */; };
 		74F275372BDA511A00B9F3DD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275362BDA511A00B9F3DD /* FirebaseFirestore */; };
 		74F275392BDA511A00B9F3DD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275382BDA511A00B9F3DD /* FirebaseFirestoreSwift */; };
 		74F2753D2BDA6E1000B9F3DD /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */; };
@@ -98,6 +99,7 @@
 		749D03842BD8E86E00210B09 /* WalkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkModel.swift; sourceTree = "<group>"; };
 		749D03872BD8E8B800210B09 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		749D03892BD8E8CD00210B09 /* PedometerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerManager.swift; sourceTree = "<group>"; };
+		74AFCDB52BDAF5C10089F174 /* AuthManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerTests.swift; sourceTree = "<group>"; };
 		74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataStoreManager.swift; sourceTree = "<group>"; };
 		74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewModel.swift; sourceTree = "<group>"; };
@@ -150,8 +152,8 @@
 			children = (
 				748E4E622BD907040044035F /* AuthView.swift */,
 				742824C92BD94E1C0028E9D0 /* SignInView.swift */,
-				742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */,
 				742824C72BD944540028E9D0 /* SignUpView.swift */,
+				742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				749D03452BD7FE1A00210B09 /* Woof_CompanionTests.swift */,
+				74AFCDB52BDAF5C10089F174 /* AuthManagerTests.swift */,
 			);
 			path = "Woof-CompanionTests";
 			sourceTree = "<group>";
@@ -237,8 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				748E4E6A2BD9112F0044035F /* Firebase */,
-				749D03802BD83D7500210B09 /* WeatherChoice.swift */,
-				749D03842BD8E86E00210B09 /* WalkModel.swift */,
+				74AFCDB72BDB017B0089F174 /* Walk */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,6 +334,15 @@
 				74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		74AFCDB72BDB017B0089F174 /* Walk */ = {
+			isa = PBXGroup;
+			children = (
+				749D03802BD83D7500210B09 /* WeatherChoice.swift */,
+				749D03842BD8E86E00210B09 /* WalkModel.swift */,
+			);
+			path = Walk;
 			sourceTree = "<group>";
 		};
 		74F2754A2BDAAE9800B9F3DD /* Subview */ = {
@@ -521,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				749D03462BD7FE1A00210B09 /* Woof_CompanionTests.swift in Sources */,
+				74AFCDB62BDAF5C10089F174 /* AuthManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

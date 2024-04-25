@@ -13,11 +13,11 @@ struct FinishedWalkView: View {
     @EnvironmentObject private var coordinator: CoordinatorManager
     @EnvironmentObject private var appModel: AppModel
     @ObservedObject private var vm = WalkViewModel()
-    
     @State var weatherTag: WeatherChoice = .sun
     @State var energy: Double = 50
     @State var encounter = 0
     
+    //MARK: - Properties
     var body: some View {
         VStack {
             Spacer()
@@ -67,19 +67,12 @@ struct FinishedWalkView: View {
             
             Button {
                 coordinator.dismissFullScreenCover()
-                coordinator.selectedTab = .main
-                
-                #warning("Call to save into database")
-                
+                coordinator.popToRoot()
                 appModel.walkModel.weather = weatherTag.description
                 appModel.walkModel.energy = Int(energy)
                 appModel.walkModel.date = Date()
                 appModel.walkModel.encounter = encounter
-                
                 vm.addWalk(for: appModel.walkModel)
-//                ending.toggle()
-//                $presentationMode.wrappedValue.dismiss()
-//                appModel.selection = 1
             } label: {
                 Image(systemName: "checkmark")
                     .font(.title)
@@ -89,7 +82,7 @@ struct FinishedWalkView: View {
                 Circle()
             }
         }
-//        .presentationBackground(.thinMaterial)
+        .background(.gray.opacity(0.2))
     }
 }
 

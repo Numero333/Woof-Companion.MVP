@@ -11,6 +11,7 @@ import Firebase
 @main
 struct Woof_CompanionApp: App {
     
+    //MARK: - Properties
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {

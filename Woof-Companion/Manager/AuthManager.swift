@@ -11,108 +11,58 @@ import FirebaseAuth
 @MainActor
 final class AuthManager: ObservableObject {
     
-    // MARK: Properties
+    // MARK: - Properties
     @Published var isLogged = false
-    @Published var email = ""
-    @Published var password = ""
     
-//        init() {
-//            Auth.auth().currentUser?.delete()
-//           try! signOut()
-//        }
+    private let walkDataStoreManager = WalkDataStoreManager()
     
-    //MARK: - Methods
+    // MARK: - Auth Methods
     
-    // Get the user localy
+    // Get the currently authenticated user
     func getAuthUser() throws -> AuthDataResultModel {
         guard let user = Auth.auth().currentUser else {
-            print("error")
             throw URLError(.userAuthenticationRequired)
         }
         isLogged = true
         return AuthDataResultModel(user: user)
     }
     
-    func deleteUser() {
-        let user = Auth.auth().currentUser
-
-        user?.delete { error in
-          if let error = error {
-            // An error happened.
-          } else {
-            // Account deleted.
-          }
-        }
-    }
-    
-    func signOut() throws {
-        do {
-            try Auth.auth().signOut()
-            isLogged = false
-        } catch let error {
-            throw error
-        }
-    }
-    
-    func signUp() {
-        
-        guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
-            print("incorrect mail or password check information")
-            return
-        }
-        
-        Task {
-            do {
-                let _ = try await self.createUser(email: email, password: password)
-                self.isLogged = true
-            } catch let error {
-                print("error while logging please try again")
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func signIn() {
-        guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
-            print("incorrect mail or password check information")
-            return
-        }
-        Task {
-            do {
-                let _ = try await self.signInUser(email: email, password: password)
-                print(email)
-                print(password)
-                self.isLogged = true
-            } catch let error {
-                print("error while sign in please try again")
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-//    func resetPassword() {
-//        do {
-//            let user = try getAuthUser()
-//            guard let email = user.email else {
-//                print("cant find email")
-//                return
-//            }
-//            resetPasswordUser(email: email)
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-//    }
-    
-    func updateEmail() {
+    func deleteUser() async throws {
         guard let user = Auth.auth().currentUser else {
-            print("cant find user")
-            return
+            throw NSError(domain: "AuthError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "No user is logged in."])
         }
-        guard let email = user.email else {
-            print("cant find user email")
-            return
+        try await user.delete()
+        self.isLogged = false
+    }
+    
+    func signOut() async throws {
+        try Auth.auth().signOut()
+        isLogged = false
+    }
+    
+    func signUp(email: String, password: String) async throws {
+        guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
+            throw NSError(domain: "AuthError", code: 1002, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password."])
         }
-        user.sendEmailVerification(beforeUpdatingEmail: email)
+        let _ = try await createUser(email: email, password: password)
+        let user = try getAuthUser()
+        try await walkDataStoreManager.createNewDocumentForUser(user: user)
+        self.isLogged = true
+    }
+    
+    func signIn(email: String, password: String) async throws {
+        guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
+            throw NSError(domain: "AuthError", code: 1003, userInfo: [NSLocalizedDescriptionKey: "Invalid email or password."])
+        }
+        let _ = try await signInUser(email: email, password: password)
+        self.isLogged = true
+    }
+    
+    func updateEmail(email: String) async throws {
+        guard let user = Auth.auth().currentUser, let currentEmail = user.email else {
+            throw NSError(domain: "AuthError", code: 1004, userInfo: [NSLocalizedDescriptionKey: "Cannot find user or email."])
+        }
+        try await user.sendEmailVerification(beforeUpdatingEmail: email)
     }
     
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
@@ -125,16 +75,7 @@ final class AuthManager: ObservableObject {
         return AuthDataResultModel(user: authResult.user)
     }
     
-    func resetPasswordUser(email: String) async throws {
-        do {
-            try await Auth.auth().sendPasswordReset(withEmail: email)
-        } catch let error {
-            print("error mail non trouvé")
-        }
-    }
-    
-    func debug() {
-        self.isLogged =  true
-        print(isLogged)
+    func resetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
     }
 }

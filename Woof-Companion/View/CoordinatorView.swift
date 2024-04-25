@@ -12,6 +12,7 @@ struct CoordinatorView: View {
     
     // StateObject to manage the state and logic of navigation throughout the app.
     @StateObject private var coordinator = CoordinatorManager()
+    @ObservedObject private var appModel = AppModel()
     private var authManager = AuthManager()
     
     var body: some View {
@@ -66,6 +67,7 @@ struct CoordinatorView: View {
         }
         // Injects the coordinator as an environment object available to child views.
         .environmentObject(coordinator)
+        .environmentObject(appModel)
         .onAppear {
             let authUser = try? authManager.getAuthUser()
             coordinator.isLogged = authUser == nil ? false : true

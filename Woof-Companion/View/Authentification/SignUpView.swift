@@ -10,27 +10,28 @@ import AuthenticationServices
 
 struct SignUpView: View {
     
+    //MARK: - Properties
     @EnvironmentObject private var coordinator: CoordinatorManager
-    @EnvironmentObject private var authManager: AuthManager
-    
+    @ObservedObject private var vm = AuthentificationViewModel()
     @FocusState private var isFocused
+    @State private var showAlert = false
     
     var body: some View {
         VStack {
-            TextField("Mail...", text: $authManager.email)
+            TextField("Mail...", text: $vm.email)
                 .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
                 .focused($isFocused)
             
-            SecureField("Password...", text: $authManager.password)
+            SecureField("Password...", text: $vm.password)
                 .textInputAutocapitalization(.never)
                 .padding()
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(10)
             Button {
-                authManager.signUp()
+                vm.signUp()
             } label: {
                 Text("Sign In")
                     .font(.headline)
@@ -50,6 +51,9 @@ struct SignUpView: View {
             .padding(.top)
             
         }
+        .onChange(of: vm.isLogged) {
+            coordinator.isLogged = vm.isLogged
+        }
         .navigationTitle("Créer un compte")
         .navigationBarTitleDisplayMode(.large)
         .padding()
@@ -57,8 +61,20 @@ struct SignUpView: View {
             isFocused = true
         }
         .onDisappear {
-            authManager.email = ""
-            authManager.password = ""
+            vm.clearTextInput()
+        }
+        .onReceive(vm.$errorMessage, perform: { _ in
+            if vm.errorMessage != nil {
+                showAlert = true
+            }
+        })
+        .alert("Erreur",
+               isPresented: $showAlert) {
+            Button("Okay") {
+                showAlert.toggle()
+            }
+        } message: {
+            Text(vm.errorMessage?.description ?? "Une erreur inconnu est survenu")
         }
     }
 }

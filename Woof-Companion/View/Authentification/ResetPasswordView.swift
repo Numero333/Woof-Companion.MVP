@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ResetPasswordView: View {
     
-    @EnvironmentObject private var authManager: AuthManager
     @EnvironmentObject private var coordinator: CoordinatorManager
+    @ObservedObject private var vm = AuthentificationViewModel()
     
     @State private var email =  ""
     @State private var isPresented = false
@@ -20,9 +20,7 @@ struct ResetPasswordView: View {
             TextField("Email...", text: $email)
             
             Button {
-                Task {
-                    try await authManager.resetPasswordUser(email: email)
-                }
+                vm.resetPassword(email: email)
                 isPresented.toggle()
             } label: {
                 Text("Réinitialiser le mot de passe")
@@ -35,7 +33,9 @@ struct ResetPasswordView: View {
             }.padding()
         }
         .alert("Mot de passe réinitialisé", isPresented: $isPresented, actions: {
-            Button("OK") { coordinator.popToRoot() }
+            Button("OK") {
+                coordinator.popToRoot()
+            }
         }, message: {
             Text("Un mail vous a été envoyer")
         })

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct WalkView: View {
     @EnvironmentObject private var coordinator: CoordinatorManager
+    @EnvironmentObject private var appModel: AppModel
     @ObservedObject var timer = TimerManager()
     @ObservedObject var pedometer = PedometerManager()
     
-    @State var isStarted = false
-    @State var ending =  false
     
-    let vm = WalkViewModel()
+    
+    @ObservedObject var vm = WalkViewModel()
     
     @State var currentWalk = WalkModel()
     
@@ -46,18 +46,18 @@ struct WalkView: View {
             HStack {
                 Button {
                     
-                    if isStarted {
+                    if vm.isStarted {
                         timer.pause()
-                        isStarted.toggle()
+                        vm.isStarted.toggle()
                         
                     } else {
                         pedometer.startCountingSteps()
                         timer.start()
-                        isStarted.toggle()
+                        vm.isStarted.toggle()
                     }
                     
                 } label: {
-                    Image(systemName: isStarted ? "pause" : "play.fill")
+                    Image(systemName: vm.isStarted ? "pause" : "play.fill")
                         .font(.system(size: 40, weight: .heavy))
                         .foregroundColor(.white)
                         .padding(25)
@@ -70,12 +70,13 @@ struct WalkView: View {
                 
                 Button {
                     timer.stop()
+                    vm.isStarted.toggle()
+                    appModel.walkModel.distance = pedometer.currentDistance as! Double
+                    appModel.walkModel.duration = timer.elapsedTime
+                    appModel.walkModel.startDate = timer.startHour
+                    appModel.walkModel.speed = pedometer.speed
+                    appModel.walkModel.totalInSecond = timer.totalInSecond
                     
-                    currentWalk.distance = pedometer.currentDistance as! Double
-                    currentWalk.duration = timer.elapsedTime
-                    currentWalk.startDate = timer.startHour
-                    currentWalk.speed = pedometer.speed
-                    currentWalk.totalInSecond = timer.totalInSecond
                     coordinator.present(fullScreenCover: .finishedWalk)
                 } label: {
                     Image(systemName: "stop")
@@ -89,6 +90,7 @@ struct WalkView: View {
                 .padding(.bottom, 40)
             }
         }
+        .environmentObject(vm)
         .frame(maxHeight: .infinity)
         .background(Color(red: 0.969, green: 0.392, blue: 0.0).opacity(0.7))
     }

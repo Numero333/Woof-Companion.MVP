@@ -11,6 +11,9 @@ struct FinishedWalkView: View {
     
     //MARK: - Property
     @EnvironmentObject private var coordinator: CoordinatorManager
+    @EnvironmentObject private var appModel: AppModel
+    @ObservedObject private var vm = WalkViewModel()
+    
     @State var weatherTag: WeatherChoice = .sun
     @State var energy: Double = 50
     @State var encounter = 0
@@ -68,11 +71,12 @@ struct FinishedWalkView: View {
                 
                 #warning("Call to save into database")
                 
-//                walkData.weather = weatherTag.description
-//                walkData.energy = Int(energy2)
-//                walkData.date = Date()
-//                walkData.encounter = encounter
-//                walkvm.newWalk(walk: walkData)
+                appModel.walkModel.weather = weatherTag.description
+                appModel.walkModel.energy = Int(energy)
+                appModel.walkModel.date = Date()
+                appModel.walkModel.encounter = encounter
+                
+                vm.addWalk(for: appModel.walkModel)
 //                ending.toggle()
 //                $presentationMode.wrappedValue.dismiss()
 //                appModel.selection = 1

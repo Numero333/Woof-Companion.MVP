@@ -18,6 +18,7 @@ class AuthentificationViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var isLogged: Bool = false
+    @Published var disconnected: Bool = false
     
     // MARK: - Methods
     

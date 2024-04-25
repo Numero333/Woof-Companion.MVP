@@ -16,6 +16,7 @@ struct Woof_CompanionApp: App {
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
+                .preferredColorScheme(.light)
         }
     }
 }

@@ -25,6 +25,7 @@ struct ParametersView: View {
         .alert("Êtes vous sur de vouloir vous déconnecter ?", isPresented: $isLogOutAlertIsPresented, actions: {
             Button("Oui") {
                 vm.signOut()
+                vm.disconnected = true
                 coordinator.isLogged = false
                 coordinator.popToRoot()
             }
@@ -35,6 +36,7 @@ struct ParametersView: View {
         .alert("Êtes vous sur de vouloir supprimer votre compte ?", isPresented: $isDeleteAlertIsPresented, actions: {
             Button("Oui") {
                 vm.deleteUser()
+                vm.disconnected = true
                 coordinator.isLogged = false
                 coordinator.popToRoot()
             }
@@ -43,7 +45,9 @@ struct ParametersView: View {
             }
         })
         .onDisappear {
-            coordinator.isLogged = vm.isLogged
+            if vm.disconnected {
+                coordinator.isLogged = false
+            }
         }
     }
 }

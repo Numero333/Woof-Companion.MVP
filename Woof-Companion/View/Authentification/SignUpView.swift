@@ -51,9 +51,10 @@ struct SignUpView: View {
             .padding(.top)
             
         }
-        .onChange(of: vm.isLogged) {
-            coordinator.isLogged = vm.isLogged
-        }
+        #warning("remember")
+//        .onChange(of: vm.isLogged) {
+//            coordinator.isLogged = vm.isLogged
+//        }
         .navigationTitle("Créer un compte")
         .navigationBarTitleDisplayMode(.large)
         .padding()

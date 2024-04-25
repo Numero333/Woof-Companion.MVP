@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct WalkModel: Codable {
+struct WalkModel: Codable, Hashable {
     var startDate: String = " N/A "
     var distance: Double = 0.0
     var duration: Double = 0.0

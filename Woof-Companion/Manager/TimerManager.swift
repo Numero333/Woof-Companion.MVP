@@ -69,6 +69,20 @@ final class TimerManager: ObservableObject {
         return String(format: "%02d:%02d:%02d", hours, minutes % 60, seconds) // Added `% 60` to correct minute display.
     }
     
+    
+    #warning("... Snif")
+    private func formattedStartHour() -> String {
+        let formatter = DateFormatter()
+        // Short timestyle
+        formatter.timeStyle = .short
+        // current date and time
+        let currentDate = Date()
+        // format date and time
+        let formattedTime = formatter.string(from: currentDate)
+        // return the string value
+        return formattedTime
+    }
+    
     // Releases resources related to the timer when the instance is destroyed.
     deinit {
         timer.invalidate() // Ensures the timer is properly stopped.

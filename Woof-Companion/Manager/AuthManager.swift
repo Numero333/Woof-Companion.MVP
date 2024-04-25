@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebasePerformance
 
 @MainActor
 final class AuthManager: ObservableObject {
@@ -20,6 +21,8 @@ final class AuthManager: ObservableObject {
     
     // Get the currently authenticated user
     func getAuthUser() throws -> AuthDataResultModel {
+        let trace = Performance.startTrace(name: "getAuthUser")
+        defer { trace?.stop() }
         guard let user = Auth.auth().currentUser else {
             throw URLError(.userAuthenticationRequired)
         }
@@ -29,8 +32,10 @@ final class AuthManager: ObservableObject {
     
     // Delete the currently authenticated user
     func deleteUser() async throws {
+        let trace = Performance.startTrace(name: "deleteUser")
+        defer { trace?.stop() }
         guard let user = Auth.auth().currentUser else {
-            throw NSError(domain: "AuthError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "No user is logged in."])
+            throw NSError(domain: "AuthError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "User non connecté."])
         }
         try await user.delete()
         self.isLogged = false
@@ -38,14 +43,18 @@ final class AuthManager: ObservableObject {
     
     // Sign Out the currently authenticated user
     func signOut() async throws {
+        let trace = Performance.startTrace(name: "signOut")
+        defer { trace?.stop() }
         try Auth.auth().signOut()
         isLogged = false
     }
     
     // Sign Up the user
     func signUp(email: String, password: String) async throws {
+        let trace = Performance.startTrace(name: "signUp")
+        defer { trace?.stop() }
         guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
-            throw NSError(domain: "AuthError", code: 1002, userInfo: [NSLocalizedDescriptionKey: "Invalide email or password."])
+            throw NSError(domain: "AuthError", code: 1002, userInfo: [NSLocalizedDescriptionKey: "Invalide email ou password."])
         }
         let _ = try await createUser(email: email, password: password)
         let user = try getAuthUser()
@@ -53,10 +62,12 @@ final class AuthManager: ObservableObject {
         self.isLogged = true
     }
     
-    // Sing In the user and check mail and password
+    // Sign In the user and check mail and password
     func signIn(email: String, password: String) async throws {
+        let trace = Performance.startTrace(name: "signIn")
+        defer { trace?.stop() }
         guard !email.isEmpty, !password.isEmpty, email.count > 10, password.count > 8 else {
-            throw NSError(domain: "AuthError", code: 1003, userInfo: [NSLocalizedDescriptionKey: "Invalide email or password."])
+            throw NSError(domain: "AuthError", code: 1003, userInfo: [NSLocalizedDescriptionKey: "Invalide email ou password."])
         }
         let _ = try await signInUser(email: email, password: password)
         self.isLogged = true

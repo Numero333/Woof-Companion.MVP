@@ -38,11 +38,15 @@
 		749D03852BD8E86E00210B09 /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03842BD8E86E00210B09 /* WalkModel.swift */; };
 		749D03882BD8E8B800210B09 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03872BD8E8B800210B09 /* TimerManager.swift */; };
 		749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03892BD8E8CD00210B09 /* PedometerManager.swift */; };
+		74AFCDB42BDAC33B0089F174 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 74AFCDB32BDAC33B0089F174 /* FirebasePerformance */; };
 		74F275372BDA511A00B9F3DD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275362BDA511A00B9F3DD /* FirebaseFirestore */; };
 		74F275392BDA511A00B9F3DD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275382BDA511A00B9F3DD /* FirebaseFirestoreSwift */; };
 		74F2753D2BDA6E1000B9F3DD /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */; };
 		74F2753F2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */; };
 		74F275422BDA74A100B9F3DD /* AuthentificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */; };
+		74F275472BDA9C4A00B9F3DD /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F275462BDA9C4A00B9F3DD /* AppModel.swift */; };
+		74F275492BDAA9A000B9F3DD /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F275482BDAA9A000B9F3DD /* HistoryViewModel.swift */; };
+		74F2754E2BDAAEB100B9F3DD /* HistoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2754D2BDAAEB100B9F3DD /* HistoryContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,10 @@
 		74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataStoreManager.swift; sourceTree = "<group>"; };
 		74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewModel.swift; sourceTree = "<group>"; };
+		74F275462BDA9C4A00B9F3DD /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		74F275482BDAA9A000B9F3DD /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		74F2754D2BDAAEB100B9F3DD /* HistoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentView.swift; sourceTree = "<group>"; };
+		74F2754F2BDAB21600B9F3DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 			files = (
 				74F275392BDA511A00B9F3DD /* FirebaseFirestoreSwift in Frameworks */,
 				74239A2A2BD9031000EFC2BE /* FirebaseAnalyticsSwift in Frameworks */,
+				74AFCDB42BDAC33B0089F174 /* FirebasePerformance in Frameworks */,
 				74F275372BDA511A00B9F3DD /* FirebaseFirestore in Frameworks */,
 				74239A2F2BD9056700EFC2BE /* FirebaseAuth in Frameworks */,
 				74239A282BD9031000EFC2BE /* FirebaseAnalytics in Frameworks */,
@@ -217,6 +226,7 @@
 		749D034E2BD7FE1A00210B09 /* Woof-CompanionUITests */ = {
 			isa = PBXGroup;
 			children = (
+				74F2754F2BDAB21600B9F3DD /* Info.plist */,
 				749D034F2BD7FE1A00210B09 /* Woof_CompanionUITests.swift */,
 				749D03512BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift */,
 			);
@@ -238,6 +248,7 @@
 			children = (
 				749D03822BD8E83400210B09 /* WalkViewModel.swift */,
 				74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */,
+				74F275482BDAA9A000B9F3DD /* HistoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -258,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */,
+				74F275462BDA9C4A00B9F3DD /* AppModel.swift */,
 				74239A2B2BD904C100EFC2BE /* AppDelegate.swift */,
 			);
 			path = ApplicationLifeCycle;
@@ -304,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				749D037A2BD80A4000210B09 /* HistoryView.swift */,
+				74F2754A2BDAAE9800B9F3DD /* Subview */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -319,6 +332,14 @@
 				74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		74F2754A2BDAAE9800B9F3DD /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				74F2754D2BDAAEB100B9F3DD /* HistoryContentView.swift */,
+			);
+			path = Subview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +364,7 @@
 				74239A2E2BD9056700EFC2BE /* FirebaseAuth */,
 				74F275362BDA511A00B9F3DD /* FirebaseFirestore */,
 				74F275382BDA511A00B9F3DD /* FirebaseFirestoreSwift */,
+				74AFCDB32BDAC33B0089F174 /* FirebasePerformance */,
 			);
 			productName = "Woof-Companion";
 			productReference = 749D03312BD7FE1800210B09 /* Woof-Companion.app */;
@@ -470,6 +492,7 @@
 				74F2753F2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift in Sources */,
 				748E4E6D2BD9115F0044035F /* AuthDataResultModel.swift in Sources */,
 				749D037D2BD80AE000210B09 /* FinishedWalkView.swift in Sources */,
+				74F275472BDA9C4A00B9F3DD /* AppModel.swift in Sources */,
 				742824CC2BD9603D0028E9D0 /* ResetPasswordView.swift in Sources */,
 				749D036E2BD8010800210B09 /* MainView.swift in Sources */,
 				748E4E632BD907040044035F /* AuthView.swift in Sources */,
@@ -481,6 +504,7 @@
 				749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */,
 				742824CE2BD996A70028E9D0 /* ParametersView.swift in Sources */,
 				74F275422BDA74A100B9F3DD /* AuthentificationViewModel.swift in Sources */,
+				74F275492BDAA9A000B9F3DD /* HistoryViewModel.swift in Sources */,
 				749D03702BD8017D00210B09 /* TotalActivityView.swift in Sources */,
 				742824CA2BD94E1C0028E9D0 /* SignInView.swift in Sources */,
 				748E4E692BD90FA60044035F /* AuthManager.swift in Sources */,
@@ -488,6 +512,7 @@
 				749D03792BD80A3600210B09 /* WalkView.swift in Sources */,
 				749D03752BD8063400210B09 /* CoordinatorManager.swift in Sources */,
 				742824C82BD944540028E9D0 /* SignUpView.swift in Sources */,
+				74F2754E2BDAAEB100B9F3DD /* HistoryContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +685,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -694,6 +720,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -759,6 +786,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PQM28NC327;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Woof-CompanionUITests/Info.plist";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fxm.Woof-CompanionUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -777,6 +806,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PQM28NC327;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Woof-CompanionUITests/Info.plist";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fxm.Woof-CompanionUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -854,6 +885,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		74AFCDB32BDAC33B0089F174 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74239A262BD9031000EFC2BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
 		};
 		74F275362BDA511A00B9F3DD /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;

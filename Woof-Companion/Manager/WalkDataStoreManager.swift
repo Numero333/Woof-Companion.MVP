@@ -22,11 +22,8 @@ final class WalkDataStoreManager {
     }
     
     // Add a new walk for the user
-    func addNewWalkForUser(user: AuthDataResultModel, walkData: [String: String]) async throws {
-        guard walkData["date"] != nil, walkData["distance"] != nil, walkData["duration"] != nil, walkData["location"] != nil, walkData["weather"] != nil else {
-            throw NSError(domain: "InvalidWalkData", code: 400, userInfo: ["message": "Missing walk data attributes"])
-        }
-        try await firestoreManager.setDocument(collectionPath: "users/\(user.uid)/walk", documentId: UUID().uuidString, data: walkData)
+    func addNewWalkForUser(user: AuthDataResultModel, walkData: WalkModel) async throws {
+        try await firestoreManager.setDocument(collectionPath: "users/\(user.uid)/walk", documentId: Date().description, data: walkData.value)
     }
     
     // Fetch all walks of the user

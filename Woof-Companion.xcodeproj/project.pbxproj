@@ -16,6 +16,9 @@
 		742824CA2BD94E1C0028E9D0 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824C92BD94E1C0028E9D0 /* SignInView.swift */; };
 		742824CC2BD9603D0028E9D0 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */; };
 		742824CE2BD996A70028E9D0 /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742824CD2BD996A70028E9D0 /* ParametersView.swift */; };
+		7463D7D22BDB97F900B802C8 /* LastWalkViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463D7D12BDB97F900B802C8 /* LastWalkViewModelTest.swift */; };
+		7463D7D42BDB9C6200B802C8 /* TotalActivityViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463D7D32BDB9C6200B802C8 /* TotalActivityViewModelTest.swift */; };
+		7463D7D82BDBA12A00B802C8 /* TimerManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463D7D72BDBA12A00B802C8 /* TimerManagerTest.swift */; };
 		7483692E2BDB2A0700BFB320 /* LastWalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7483692D2BDB2A0700BFB320 /* LastWalkViewModel.swift */; };
 		748369302BDB2CDB00BFB320 /* TotalActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7483692F2BDB2CDB00BFB320 /* TotalActivityViewModel.swift */; };
 		748369322BDB311A00BFB320 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748369312BDB311A00BFB320 /* AnnouncementView.swift */; };
@@ -26,7 +29,6 @@
 		749D03352BD7FE1800210B09 /* Woof_CompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03342BD7FE1800210B09 /* Woof_CompanionApp.swift */; };
 		749D03392BD7FE1A00210B09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749D03382BD7FE1A00210B09 /* Assets.xcassets */; };
 		749D033C2BD7FE1A00210B09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749D033B2BD7FE1A00210B09 /* Preview Assets.xcassets */; };
-		749D03462BD7FE1A00210B09 /* Woof_CompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03452BD7FE1A00210B09 /* Woof_CompanionTests.swift */; };
 		749D03502BD7FE1A00210B09 /* Woof_CompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D034F2BD7FE1A00210B09 /* Woof_CompanionUITests.swift */; };
 		749D03522BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03512BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift */; };
 		749D036B2BD8006C00210B09 /* LastWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D036A2BD8006C00210B09 /* LastWalkView.swift */; };
@@ -43,7 +45,6 @@
 		749D03882BD8E8B800210B09 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03872BD8E8B800210B09 /* TimerManager.swift */; };
 		749D038A2BD8E8CD00210B09 /* PedometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D03892BD8E8CD00210B09 /* PedometerManager.swift */; };
 		74AFCDB42BDAC33B0089F174 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 74AFCDB32BDAC33B0089F174 /* FirebasePerformance */; };
-		74AFCDB62BDAF5C10089F174 /* AuthManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AFCDB52BDAF5C10089F174 /* AuthManagerTests.swift */; };
 		74F275372BDA511A00B9F3DD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275362BDA511A00B9F3DD /* FirebaseFirestore */; };
 		74F275392BDA511A00B9F3DD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 74F275382BDA511A00B9F3DD /* FirebaseFirestoreSwift */; };
 		74F2753D2BDA6E1000B9F3DD /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */; };
@@ -78,6 +79,9 @@
 		742824C92BD94E1C0028E9D0 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		742824CB2BD9603D0028E9D0 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		742824CD2BD996A70028E9D0 /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
+		7463D7D12BDB97F900B802C8 /* LastWalkViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWalkViewModelTest.swift; sourceTree = "<group>"; };
+		7463D7D32BDB9C6200B802C8 /* TotalActivityViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityViewModelTest.swift; sourceTree = "<group>"; };
+		7463D7D72BDBA12A00B802C8 /* TimerManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTest.swift; sourceTree = "<group>"; };
 		7483692D2BDB2A0700BFB320 /* LastWalkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWalkViewModel.swift; sourceTree = "<group>"; };
 		7483692F2BDB2CDB00BFB320 /* TotalActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityViewModel.swift; sourceTree = "<group>"; };
 		748369312BDB311A00BFB320 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
@@ -90,7 +94,6 @@
 		749D03382BD7FE1A00210B09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749D033B2BD7FE1A00210B09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		749D03412BD7FE1A00210B09 /* Woof-CompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Woof-CompanionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		749D03452BD7FE1A00210B09 /* Woof_CompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woof_CompanionTests.swift; sourceTree = "<group>"; };
 		749D034B2BD7FE1A00210B09 /* Woof-CompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Woof-CompanionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749D034F2BD7FE1A00210B09 /* Woof_CompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woof_CompanionUITests.swift; sourceTree = "<group>"; };
 		749D03512BD7FE1A00210B09 /* Woof_CompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woof_CompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		749D03842BD8E86E00210B09 /* WalkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkModel.swift; sourceTree = "<group>"; };
 		749D03872BD8E8B800210B09 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		749D03892BD8E8CD00210B09 /* PedometerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerManager.swift; sourceTree = "<group>"; };
-		74AFCDB52BDAF5C10089F174 /* AuthManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerTests.swift; sourceTree = "<group>"; };
 		74F2753C2BDA6E1000B9F3DD /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		74F2753E2BDA6E5E00B9F3DD /* WalkDataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataStoreManager.swift; sourceTree = "<group>"; };
 		74F275412BDA74A100B9F3DD /* AuthentificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewModel.swift; sourceTree = "<group>"; };
@@ -228,8 +230,9 @@
 		749D03442BD7FE1A00210B09 /* Woof-CompanionTests */ = {
 			isa = PBXGroup;
 			children = (
-				749D03452BD7FE1A00210B09 /* Woof_CompanionTests.swift */,
-				74AFCDB52BDAF5C10089F174 /* AuthManagerTests.swift */,
+				7463D7D12BDB97F900B802C8 /* LastWalkViewModelTest.swift */,
+				7463D7D32BDB9C6200B802C8 /* TotalActivityViewModelTest.swift */,
+				7463D7D72BDBA12A00B802C8 /* TimerManagerTest.swift */,
 			);
 			path = "Woof-CompanionTests";
 			sourceTree = "<group>";
@@ -547,8 +550,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				749D03462BD7FE1A00210B09 /* Woof_CompanionTests.swift in Sources */,
-				74AFCDB62BDAF5C10089F174 /* AuthManagerTests.swift in Sources */,
+				7463D7D42BDB9C6200B802C8 /* TotalActivityViewModelTest.swift in Sources */,
+				7463D7D22BDB97F900B802C8 /* LastWalkViewModelTest.swift in Sources */,
+				7463D7D82BDBA12A00B802C8 /* TimerManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

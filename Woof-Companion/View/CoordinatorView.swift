@@ -60,7 +60,6 @@ struct CoordinatorView: View {
                 .navigationDestination(for: SubView.self) { subView in
                     coordinator.build(subView: subView) // Builds the appropriate view.
                 }
-                
                 // Full screen cover for presenting modal views.
                 .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
                     coordinator.build(fullScreenCover: fullScreenCover)

@@ -9,10 +9,28 @@ import Foundation
 import SwiftUI
 
 @MainActor
-final class AuthentificationViewModel: ObservableObject {
+protocol AuthenticationViewModelProtocol: AnyObject {
+    var email: String { get set }
+    var password: String { get set }
+    var isLogged: Bool { get }
+    var disconnected: Bool { get set }
+    var errorMessage: String? { get set }
+
+    func signUp()
+    func signIn()
+    func signOut()
+    func deleteUser()
+    func updateEmail(email: String)
+    func resetPassword(email: String)
+    func clearTextInput()
+}
+
+
+@MainActor
+final class AuthentificationViewModel: AuthenticationViewModelProtocol, ObservableObject {
     
     // MARK: - Properties
-    @Published var authManager = AuthManager()
+    @Published var authManager: AuthManager
     @Published var errorMessage: String?
     @Published var email: String = ""
     @Published var password: String = ""

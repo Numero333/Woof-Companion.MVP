@@ -67,7 +67,7 @@ struct FinishedWalkView: View {
             
             Button {
                 coordinator.dismissFullScreenCover()
-                coordinator.popToRoot()
+                coordinator.selectedTab = .main
                 appModel.walkModel.weather = weatherTag.description
                 appModel.walkModel.energy = Int(energy)
                 appModel.walkModel.date = Date()

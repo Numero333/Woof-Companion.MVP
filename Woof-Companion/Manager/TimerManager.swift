@@ -29,7 +29,7 @@ final class TimerManager: ObservableObject {
     
     // Total accumulated time in seconds during pauses or stops.
     var totalInSecond: Double = 0
-        
+    
     // MARK: Methods
     
     // Starts or resumes the timer.
@@ -46,7 +46,7 @@ final class TimerManager: ObservableObject {
             }
         }
     }
-
+    
     // Pauses the timer.
     func pause() {
         totalInSecond += abs(startDate.timeIntervalSinceNow) // Adds time since last resume.
@@ -59,18 +59,16 @@ final class TimerManager: ObservableObject {
         timer.invalidate() // Stops the timer.
     }
     
-    // MARK: Private Methods
-    
     // Formats elapsed time into a hour:minute:second format.
-    private func formatTime(time: TimeInterval) -> String {
+    func formatTime(time: TimeInterval) -> String {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
         let hours = minutes / 60
-        return String(format: "%02d:%02d:%02d", hours, minutes % 60, seconds) // Added `% 60` to correct minute display.
+        return String(format: "%02d:%02d:%02d", hours, minutes % 60, seconds)
     }
     
+    // MARK: Private Methods
     
-    #warning("... Snif")
     private func formattedStartHour() -> String {
         let formatter = DateFormatter()
         // Short timestyle

@@ -18,8 +18,9 @@ struct HistoryView: View {
     
     //MARK: - Body
     var body: some View {
-        VStack {
-            NavigationView {
+        NavigationView {
+            VStack {
+                
                 if vm.isLoading {
                     ProgressView("Chargement...")
                 } else {
@@ -35,7 +36,7 @@ struct HistoryView: View {
                         }
                         .onDelete(perform: { indexSet in
                             indexSet.forEach { index in
-
+                                
                             }
                         })
                     }
@@ -46,9 +47,9 @@ struct HistoryView: View {
                     .navigationTitle("Historique")
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(#colorLiteral(red: 0.9970293641, green: 0.9413875937, blue: 0.7955917716, alpha: 1)))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(#colorLiteral(red: 0.9970293641, green: 0.9413875937, blue: 0.7955917716, alpha: 1)))
         .onAppear {
             vm.fetchAll()
         }

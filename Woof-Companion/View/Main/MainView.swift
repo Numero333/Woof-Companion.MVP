@@ -18,6 +18,7 @@ struct MainView: View {
         
         NavigationView {
             VStack {
+                AnnouncementView()
                 Spacer()
                 TotalActivityView()
                 Spacer()
@@ -46,6 +47,7 @@ struct MainView: View {
                 }
             }
             .navigationTitle("Accueil")
+            .background(Color(#colorLiteral(red: 0.9378123879, green: 0.7619144917, blue: 0.5526022911, alpha: 1)))
         }
     }
 }

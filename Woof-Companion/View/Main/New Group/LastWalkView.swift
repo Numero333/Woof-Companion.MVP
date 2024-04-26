@@ -10,10 +10,8 @@ import SwiftUI
 struct LastWalkView: View {
     
     //MARK: - Properties
-//    @StateObject var vm = LastWalkViewModel()
-    
-    let staticValue = "10"
-    
+    @ObservedObject private var vm = LastWalkViewModel()
+        
     //MARK: - Body
     var body: some View {
         
@@ -29,19 +27,19 @@ struct LastWalkView: View {
                 .padding(.bottom)
                 
                 HStack {
-                    InfoTag(icon: "bolt.fill", text: staticValue, color: Color.yellow.gradient)
-                    InfoTag(icon: "sun.max", text: staticValue, color: Color.pink.gradient)
-                    InfoTag(icon: "pawprint", text: staticValue, color: Color.green.gradient
+                    InfoTag(icon: "bolt.fill", text: vm.energy, color: Color.yellow.gradient)
+                    InfoTag(icon: "sun.max", text: vm.weather, color: Color.pink.gradient)
+                    InfoTag(icon: "pawprint", text: vm.encounter, color: Color.green.gradient
                     )
                 }
                 .padding(.bottom, 10)
                 
                 HStack(alignment: .center) {
-                    BigTag(icon: "clock", text: "Heure", color: .blue, value: staticValue)
+                    BigTag(icon: "clock", text: "Heure", color: .blue, value: vm.startDate)
                     Spacer()
-                    BigTag(icon: "timer", text: "Durée", color: .orange, value: staticValue)
+                    BigTag(icon: "timer", text: "Durée", color: .orange, value: vm.duration)
                     Spacer()
-                    BigTag(icon: "flag", text: "Distance", color: .cyan, value: staticValue)
+                    BigTag(icon: "flag", text: "Distance", color: .cyan, value: vm.distance)
                 }
                 
             }
@@ -51,7 +49,7 @@ struct LastWalkView: View {
             .padding(.horizontal)
         }
         .onAppear {
-           
+            vm.fetch()
         }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct TotalActivityView: View {
         
     //MARK: - Properties
-    let staticValue = "10"
+    @ObservedObject private var vm = TotalActivityViewModel()
     
     //MARK: - Body
     var body: some View {
@@ -21,10 +21,10 @@ struct TotalActivityView: View {
                 .foregroundColor(.black)
                 .padding()
             HStack{
-                Cell(systemName: "timer", label: "Durée", value: staticValue)
-                Cell(systemName: "location", label: "Distance", value: staticValue)
-                Cell(systemName: "bolt", label: "Energie", value: staticValue)
-                Cell(systemName: "pawprint", label: "Rencontre", value: staticValue)
+                Cell(systemName: "timer", label: "Durée", value: vm.duration)
+                Cell(systemName: "location", label: "Distance", value: vm.distance)
+                Cell(systemName: "bolt", label: "Energie", value: vm.energy)
+                Cell(systemName: "pawprint", label: "Rencontre", value: vm.encouter)
             }
         }
         .padding()
@@ -32,7 +32,7 @@ struct TotalActivityView: View {
         .cornerRadius(25)
         .padding(.horizontal)
         .onAppear {
-            
+            vm.fetch()
         }
     }
 }

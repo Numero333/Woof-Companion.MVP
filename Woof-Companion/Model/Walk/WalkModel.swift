@@ -36,7 +36,6 @@ struct WalkModel: Codable, Hashable {
     }
     
     //MARK: - Methods
-    
     static func from(dictionary: [String: Any]) -> WalkModel {
             let startDate = dictionary["startDate"] as? String ?? "N/A"
             let distance = dictionary["distance"] as? Double ?? 0.0

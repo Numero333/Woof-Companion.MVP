@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct TotalActivityView: View {
-        
+    
     //MARK: - Properties
     @ObservedObject private var vm = TotalActivityViewModel()
     
     //MARK: - Body
     var body: some View {
         VStack {
-            Text("Total de la journée")
-                .font(.title2)
-                .italic()
-                .foregroundColor(.black)
-                .padding()
+            
+            HStack {
+                Text("Total de la journée")
+                    .font(.title2)
+                    .italic()
+                Spacer()
+            }
+            .padding(.bottom)
+            
             HStack{
                 Cell(systemName: "timer", label: "Durée", value: vm.duration)
                 Cell(systemName: "location", label: "Distance", value: vm.distance)

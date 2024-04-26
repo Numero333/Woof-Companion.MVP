@@ -15,8 +15,18 @@ struct AnnouncementView: View {
     //MARK: - Body
     var body: some View {
         VStack {
+            HStack {
+                Text("Annonce")
+                    .font(.title2)
+                    .italic()
+                Spacer()
+            }
+            .padding(.leading)
+            .padding(.top, -30)
+            
             Text(vm.title)
                 .font(.title3)
+                .fontWeight(.medium)
                 .padding(.bottom)
                 
             Text(vm.text)
@@ -24,8 +34,6 @@ struct AnnouncementView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
         }
-        .font(.largeTitle)
-        .fontWeight(.medium)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.ultraThinMaterial)
         .cornerRadius(25.0)
